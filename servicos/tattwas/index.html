@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tattwas | Gradarius</title>
+<meta name="description" content="A sequência dos cinco elementos ao longo do dia, a partir do nascer e do pôr do sol. Gratuito, sem cadastro.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231e1b3a'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23b8934a'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+<script>
+/* Aplica o tema salvo antes de desenhar a página (evita piscar). */
+try { var t = localStorage.getItem('gradarius-tema'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+</head>
+<body>
+
+<header class="topo">
+  <div class="container topo-in">
+    <a class="logo" href="../../index.html" aria-label="Gradarius">Gradar<span>ius</span></a>
+    <nav class="topo-acoes">
+      <a class="link-voltar" id="t-voltar" href="../../index.html"></a>
+      <button class="btn-tema" id="btn-tema" type="button" aria-label="Alternar tema"><span aria-hidden="true">◐</span></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="orn" aria-hidden="true">✦</p>
+      <h1 id="t-titulo"></h1>
+      <p class="destaque" id="t-destaque"></p>
+      <p class="lead" id="t-lead"></p>
+
+      <form class="cartao form" id="form" novalidate>
+        <div class="par">
+          <div class="campo">
+            <label for="nascer" id="l-nascer"></label>
+            <input id="nascer" type="text" inputmode="numeric" maxlength="5" autocomplete="off" aria-describedby="erro-nascer">
+            <p class="erro" id="erro-nascer" role="alert"></p>
+          </div>
+          <div class="campo">
+            <label for="por" id="l-por"></label>
+            <input id="por" type="text" inputmode="numeric" maxlength="5" autocomplete="off" aria-describedby="erro-por">
+            <p class="erro" id="erro-por" role="alert"></p>
+          </div>
+        </div>
+        <p class="nota ajuda" id="t-ajuda"></p>
+        <details class="mais">
+          <summary id="l-outro-resumo"></summary>
+          <div class="campo">
+            <label for="outro" id="l-outro"></label>
+            <input id="outro" type="text" inputmode="numeric" maxlength="5" autocomplete="off" aria-describedby="erro-outro">
+            <p class="erro" id="erro-outro" role="alert"></p>
+          </div>
+        </details>
+        <label class="check"><input type="checkbox" id="lembrar"> <span id="l-lembrar"></span></label>
+        <button class="btn" type="submit" id="btn-ver"></button>
+        <p class="nota" id="t-priv"></p>
+      </form>
+    </div>
+  </section>
+
+  <div id="resultado" hidden>
+    <section class="secao">
+      <div class="container agora-grade">
+        <article class="cartao agora" id="agora" aria-live="polite"></article>
+        <div>
+          <h2 id="t-roda"></h2>
+          <p class="sub" id="t-roda-dica"></p>
+          <div class="roda" id="roda"></div>
+          <ul class="legenda" id="legenda"></ul>
+          <div class="acoes">
+            <button class="btn" type="button" id="btn-salvar"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao alt">
+      <div class="container">
+        <h2 id="t-proximos"></h2>
+        <ul class="linha" id="proximos"></ul>
+        <details class="todos">
+          <summary id="t-todos"></summary>
+          <p class="sub" id="t-todos-texto"></p>
+          <ul class="linha" id="todos"></ul>
+        </details>
+      </div>
+    </section>
+
+    <section class="secao chamada">
+      <div class="container">
+        <p class="orn" aria-hidden="true">✦</p>
+        <p class="destaque" id="t-chamada"></p>
+        <div class="acoes centro">
+          <a class="btn" id="btn-mapa" href="#"></a>
+          <a class="btn sec" id="btn-consulta" href="#"></a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="rodape">
+  <div class="container">
+    <p id="t-aviso"></p>
+    <p class="marca"><span aria-hidden="true">✦</span> Gradar<span class="ouro">ius</span></p>
+  </div>
+</footer>
+
+<script src="textos.js"></script>
+<script src="calculo.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

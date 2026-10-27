@@ -1,0 +1,36 @@
+# Segredos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+
+# Dados de clientes e bancos (NUNCA no GitHub)
+*.db
+*.sqlite
+*.sqlite3
+dados_clientes/
+clientes/
+pedidos/
+saida/
+backup/
+backups/
+*.dump
+
+# PDFs/ODTs de mapas de clientes
+MNN_*.pdf
+MNN_*.odt
+
+# Python / ambiente
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+
+# Sistema
+.DS_Store
+*.zip
+
+# Originais (fotos em alta resolucao ficam so na maquina)
+originais/

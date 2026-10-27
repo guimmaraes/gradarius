@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Testes do Biorritmo</title>
+<style>
+body{font:16px/1.5 system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem}
+.ok{color:#1d7a3a}.erro{color:#b00020;font-weight:600}
+#resumo{font-weight:700;font-size:1.2rem}
+</style>
+</head>
+<body>
+<h1>Testes do Biorritmo</h1>
+<p id="resumo">Rodando…</p>
+<ul id="lista"></ul>
+<script src="calculo.js"></script>
+<script>
+(function () {
+  var B = window.Biorritmo, falhas = 0, total = 0;
+  function t(nome, cond, detalhe) {
+    total++;
+    if (!cond) falhas++;
+    var li = document.createElement('li');
+    li.className = cond ? 'ok' : 'erro';
+    li.textContent = (cond ? 'OK  ' : 'FALHOU  ') + nome + (cond ? '' : ' → ' + detalhe);
+    document.getElementById('lista').appendChild(li);
+  }
+  function perto(a, b) { return Math.abs(a - b) < 1e-9; }
+
+  /* 1. nascimento = referência */
+  B.CICLOS.forEach(function (c) {
+    t('d=0 dá 0 (T=' + c.T + ')', perto(B.valor(0, c.T), 0), B.valor(0, c.T));
+  });
+
+  /* 2. quartos de ciclo (T múltiplo de 4 dá dias inteiros; os demais, valor fracionário) */
+  B.CICLOS.forEach(function (c) {
+    t('d=T/4 dá 1 (T=' + c.T + ')', perto(B.valor(c.T / 4, c.T), 1));
+    t('d=T/2 dá ≈0 (T=' + c.T + ')', perto(B.valor(c.T / 2, c.T), 0));
+    t('d=3T/4 dá −1 (T=' + c.T + ')', perto(B.valor(3 * c.T / 4, c.T), -1));
+    t('d=T volta a 0 (T=' + c.T + ')', perto(B.valor(c.T, c.T), 0));
+  });
+
+  /* 3. contagem de dias com ano bissexto */
+  function dias(a, b) { return B.diasEntre(B.lerData(a), B.lerData(b)); }
+  t('28/02/2000 → 01/03/2000 = 2 dias (2000 é bissexto)', dias('28/02/2000', '01/03/2000') === 2, dias('28/02/2000', '01/03/2000'));
+  t('28/02/2001 → 01/03/2001 = 1 dia', dias('28/02/2001', '01/03/2001') === 1);
+  t('01/01/1900 → 01/01/1901 = 365 dias (1900 não é bissexto)', dias('01/01/1900', '01/01/1901') === 365);
+  t('01/01/2000 → 01/01/2001 = 366 dias', dias('01/01/2000', '01/01/2001') === 366);
+  t('01/01/2000 → 26/10/2026 = 9795 dias', dias('01/01/2000', '26/10/2026') === 9795, dias('01/01/2000', '26/10/2026'));
+  t('virada de horário de verão não altera a contagem (06/10/2018 → 08/10/2018 = 2)', dias('06/10/2018', '08/10/2018') === 2);
+
+  /* 4. valores de um caso real, conferidos por outra via: sen(2π·(d mod T)/T) */
+  var d = dias('01/01/2000', '26/10/2026');
+  B.CICLOS.forEach(function (c) {
+    var esperado = Math.sin(2 * Math.PI * (d % c.T) / c.T);
+    t('caso 01/01/2000 em 26/10/2026, T=' + c.T + ' (d mod T = ' + (d % c.T) + ') = ' + B.porcento(d, c.T) + '%',
+      perto(B.valor(d, c.T), esperado) && B.porcento(d, c.T) === Math.round(esperado * 100));
+  });
+
+  /* 5. porcentagem sem -0 */
+  t('porcentagem zero nunca é −0', Object.is(B.porcento(0, 23), 0));
+
+  /* 6. leitura e validação de datas */
+  t('lê 29/02/2000', !!B.lerData('29/02/2000'));
+  t('rejeita 29/02/2001', B.lerData('29/02/2001') === null);
+  t('rejeita 31/04/2020', B.lerData('31/04/2020') === null);
+  t('rejeita 00/01/2020', B.lerData('00/01/2020') === null);
+  t('rejeita texto', B.lerData('abc') === null);
+  t('lê formato ISO 2020-05-17', B.formatar(B.lerData('2020-05-17')) === '17/05/2020');
+  t('somarDias atravessa o ano', B.formatar(B.somarDias(B.lerData('30/12/2020'), 3)) === '02/01/2021');
+
+  /* 7. fases */
+  t('d=0 é dia de troca', B.fase(0, 28) === 'troca');
+  t('T=28, d=7 (pico) é alta', B.fase(7, 28) === 'alta');
+  t('T=28, d=21 (vale) é baixa', B.fase(21, 28) === 'baixa');
+  t('T=28, d=1 (0 a 50%, subindo) é subindo', B.fase(1, 28) === 'subindo');
+  t('T=28, d=13 (0 a 50%, descendo) é recolhimento', B.fase(13, 28) === 'recolhimento');
+  t('T=28, d=15 (−50 a 0, descendo) é recolhimento', B.fase(15, 28) === 'recolhimento');
+  t('T=28, d=14 cruza o zero (troca)', B.fase(14, 28) === 'troca');
+  t('T=23, cruzamento ocorre em d=12 (11,5 ≤ d)', B.ehTroca(12, 23) && !B.ehTroca(11, 23) && !B.ehTroca(13, 23));
+
+  /* 8. próximas trocas */
+  var tr = B.proximasTrocas(1, 28, 30);
+  t('T=28 a partir de d=1: trocas em k=13 e k=27', tr.length === 2 && tr[0] === 13 && tr[1] === 27, JSON.stringify(tr));
+  var T23 = B.proximasTrocas(0, 23, 30);
+  t('T=23 a partir de d=0: trocas em k=12 e k=23', T23.length === 2 && T23[0] === 12 && T23[1] === 23, JSON.stringify(T23));
+
+  /* 9. série */
+  var s = B.serie(0, 28, 10, 20);
+  t('série de 30 dias tem 31 pontos', s.length === 31);
+  t('ponto de hoje (índice 10) é 0', perto(s[10], 0));
+
+  var r = document.getElementById('resumo');
+  r.textContent = falhas ? falhas + ' de ' + total + ' testes FALHARAM' : 'Todos os ' + total + ' testes passaram.';
+  r.className = falhas ? 'erro' : 'ok';
+  document.title = (falhas ? 'FALHOU ' : 'OK ') + total;
+})();
+</script>
+</body>
+</html>

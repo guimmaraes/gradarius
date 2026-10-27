@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Testes dos Tattwas</title>
+<style>
+body{font:16px/1.5 system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 1rem}
+.ok{color:#1d7a3a}.erro{color:#b00020;font-weight:600}
+#resumo{font-weight:700;font-size:1.2rem}
+</style>
+</head>
+<body>
+<h1>Testes dos Tattwas</h1>
+<p id="resumo">Rodando…</p>
+<ul id="lista"></ul>
+<script src="calculo.js"></script>
+<script>
+(function () {
+  var Z = window.Tattwas, falhas = 0, total = 0;
+  function t(nome, cond, detalhe) {
+    total++;
+    if (!cond) falhas++;
+    var li = document.createElement('li');
+    li.className = cond ? 'ok' : 'erro';
+    li.textContent = (cond ? 'OK  ' : 'FALHOU  ') + nome + (cond ? '' : ' → ' + detalhe);
+    document.getElementById('lista').appendChild(li);
+  }
+  function h(s) { return Z.lerHora(s); }
+  function elem(lista, nascer, hora) { var r = Z.blocoEm(lista, nascer, h(hora)); return r && r.bloco.elemento; }
+
+  /* leitura de horas */
+  t('lê 06:00', h('06:00') === 360);
+  t('lê 6:05', h('6:05') === 365);
+  t('lê 0703', h('0703') === 423);
+  t('rejeita 24:00', h('24:00') === null);
+  t('rejeita 12:60', h('12:60') === null);
+  t('rejeita texto', h('abc') === null);
+  t('formata 00:05', Z.formatar(5) === '00:05');
+  t('formata dá a volta (1500 = 01:00)', Z.formatar(1500) === '01:00');
+  t('formata minuto negativo (-10 = 23:50)', Z.formatar(-10) === '23:50');
+
+  /* nascer 06:00, pôr 18:00 (briefing) */
+  var a = Z.blocos(h('06:00'), h('18:00')), n = h('06:00');
+  t('06:00 Âkâza', elem(a, n, '06:00') === 'akasa');
+  t('06:24 Vâyu', elem(a, n, '06:24') === 'vayu');
+  t('06:48 Tejas', elem(a, n, '06:48') === 'tejas');
+  t('07:12 Âpas', elem(a, n, '07:12') === 'apas');
+  t('07:36 Prithîvî', elem(a, n, '07:36') === 'prithivi');
+  t('08:00 Âkâza (recomeça)', elem(a, n, '08:00') === 'akasa');
+  t('06:23 ainda é Âkâza (fronteira pertence ao seguinte)', elem(a, n, '06:23') === 'akasa');
+  var f = Z.blocoEm(a, n, 6 * 60 + 23.5);
+  t('06:23:30 ainda Âkâza e faltam 0,5 min', f.bloco.elemento === 'akasa' && Math.abs(f.faltam - 0.5) < 1e-9, JSON.stringify(f));
+  f = Z.blocoEm(a, n, h('06:24'));
+  t('exatamente 06:24 já é Vâyu e faltam 24 min', f.bloco.elemento === 'vayu' && f.faltam === 24);
+
+  /* noite recomeça em Âkâza no pôr do sol */
+  t('18:00 (pôr) Âkâza da noite', elem(a, n, '18:00') === 'akasa' && Z.blocoEm(a, n, h('18:00')).bloco.periodo === 'noite');
+  t('18:24 Vâyu da noite', elem(a, n, '18:24') === 'vayu');
+  t('23:36 Prithîvî', elem(a, n, '23:36') === 'prithivi');
+  t('23:48 Prithîvî (virada)', elem(a, n, '23:48') === 'prithivi');
+  t('00:00 Âkâza (virada)', elem(a, n, '00:00') === 'akasa');
+  t('05:59 ainda noite', Z.blocoEm(a, n, h('05:59')).bloco.periodo === 'noite');
+
+  /* dia curto: o último bloco do dia é cortado no pôr */
+  var b = Z.blocos(h('07:03'), h('18:20')), nb = h('07:03');
+  t('07:03 Âkâza', elem(b, nb, '07:03') === 'akasa');
+  t('07:27 Vâyu', elem(b, nb, '07:27') === 'vayu');
+  t('07:51 Tejas', elem(b, nb, '07:51') === 'tejas');
+  t('08:15 Âpas', elem(b, nb, '08:15') === 'apas');
+  t('08:39 Prithîvî', elem(b, nb, '08:39') === 'prithivi');
+  t('09:03 Âkâza', elem(b, nb, '09:03') === 'akasa');
+  t('18:15 Âpas (planilha)', elem(b, nb, '18:15') === 'apas');
+  var corte = Z.blocoEm(b, nb, h('18:15'));
+  t('o bloco das 18:15 termina às 18:20 (cortado)', Z.formatar(corte.bloco.fim) === '18:20' && corte.faltam === 5, JSON.stringify(corte));
+  t('18:20 Âkâza da noite (planilha)', elem(b, nb, '18:20') === 'akasa');
+  t('18:44 Vâyu', elem(b, nb, '18:44') === 'vayu');
+  t('19:08 Tejas', elem(b, nb, '19:08') === 'tejas');
+  t('19:32 Âpas', elem(b, nb, '19:32') === 'apas');
+  t('19:56 Prithîvî', elem(b, nb, '19:56') === 'prithivi');
+  t('20:20 Âkâza', elem(b, nb, '20:20') === 'akasa');
+  t('00:20 Âkâza', elem(b, nb, '00:20') === 'akasa');
+  t('04:20 Âkâza', elem(b, nb, '04:20') === 'akasa');
+  t('05:56 Prithîvî', elem(b, nb, '05:56') === 'prithivi');
+  t('06:20 Âkâza', elem(b, nb, '06:20') === 'akasa');
+  t('06:59 (último bloco da noite, 06:44 a 07:03) é Vâyu', elem(b, nb, '06:59') === 'vayu', elem(b, nb, '06:59'));
+
+  /* estrutura */
+  var tudo = b.every(function (x, i) { return i === 0 || b[i - 1].fim === x.inicio; });
+  t('blocos são contínuos, sem buracos', tudo);
+  t('cobrem exatamente 24 horas', b[b.length - 1].fim - b[0].inicio === 1440);
+  t('nascer depois do pôr é inválido', Z.blocos(h('18:00'), h('06:00')) === null);
+  t('nascer igual ao pôr é inválido', Z.blocos(h('06:00'), h('06:00')) === null);
+  t('horário nulo é inválido', Z.blocos(null, h('18:00')) === null);
+
+  /* ângulos: 6h topo, 12h direita, 18h embaixo, 24h esquerda */
+  t('6h no topo (0°)', Z.angulo(360) === 0);
+  t('12h à direita (90°)', Z.angulo(720) === 90);
+  t('18h embaixo (180°)', Z.angulo(1080) === 180);
+  t('24h à esquerda (270°)', Z.angulo(0) === 270);
+  t('3h a 315°', Z.angulo(180) === 315);
+
+  var r = document.getElementById('resumo');
+  r.textContent = falhas ? falhas + ' de ' + total + ' testes FALHARAM' : 'Todos os ' + total + ' testes passaram.';
+  r.className = falhas ? 'erro' : 'ok';
+  document.title = (falhas ? 'FALHOU ' : 'OK ') + total;
+})();
+</script>
+</body>
+</html>

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gradarius | Terapia holística, tarot, mapa astral e numerologia</title>
 <meta name="description" content="Atendimentos de terapia holística com tarot e oráculos, mapa astral, mapa numerológico e florais. Agende uma conversa.">
-<meta property="og:title" content="Gradarius | Terapia holística">
-<meta property="og:description" content="Tarot e oráculos, mapa astral, mapa numerológico e florais.">
+<meta property="og:title" content="Gradarius | Holística">
+<meta property="og:description" content="Tarot, oráculos, mapa astral, mapa numerológico e florais.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#1e1b3a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
@@ -88,12 +88,31 @@ section{padding:5.5rem 0}
 .linha h3{font-size:1.9rem}
 .linha p{color:var(--muted)}
 .linha small{display:block;margin-top:.6rem;color:var(--sage);font-weight:600;font-size:.95rem}
+.linha.breve .simb{opacity:.45}
+.titulo{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.linha.breve h3{opacity:.8}
+.aviso{padding:.25rem .85rem;border:1px solid var(--brass);border-radius:999px;color:var(--brass);font-size:.9rem;font-weight:600}
+.esmaece{max-height:4.2rem;overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,#000 10%,transparent 95%);mask-image:linear-gradient(to bottom,#000 10%,transparent 95%)}
 @media(max-width:760px){.linha{grid-template-columns:1fr}.simb{font-size:2.4rem}}
 
-/* sobre */
+/* ferramentas gratuitas */
+.ferr{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.ferr a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2rem;text-decoration:none;transition:transform .2s,border-color .2s}
+.ferr a:hover{transform:translateY(-3px);border-color:var(--brass)}
+.ferr svg{width:56px;height:56px;margin-bottom:1rem;color:var(--brass)}
+.ferr .tag{font-size:.9rem;font-weight:600;color:var(--sage);margin-bottom:.4rem}
+.ferr h3{font-size:1.9rem;margin-bottom:.6rem}
+.ferr p{color:var(--muted)}
+.ferr .abrir{display:inline-block;margin-top:1.2rem;font-weight:600;color:var(--brass)}
+@media(max-width:760px){.ferr{grid-template-columns:1fr}}
+
+/* sobre e foto */
 .sobre{display:grid;grid-template-columns:.8fr 1.2fr;gap:3.5rem;align-items:center}
 .retrato{aspect-ratio:4/5;border-radius:200px 200px 16px 16px;background:linear-gradient(160deg,var(--ink-2),var(--ink));display:grid;place-items:center;color:var(--brass);font-family:var(--serif);font-size:1.2rem;text-align:center;padding:2rem;border:1px solid var(--brass)}
+img.retrato{width:100%;max-width:340px;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 15%;display:block;padding:0;justify-self:center}
 .sobre p+p{margin-top:1rem}
+.lema{font-family:var(--serif);font-style:italic;font-size:1.7rem;line-height:1.3;color:var(--brass);margin-bottom:1.4rem}
+.sobre p.lema+p{margin-top:0}
 @media(max-width:860px){.sobre{grid-template-columns:1fr}.retrato{max-width:300px}}
 
 /* como funciona: aqui a ordem importa */
@@ -121,6 +140,7 @@ footer p{max-width:none}
     <a class="logo" href="#topo">Gradar<span>ius</span></a>
     <nav aria-label="Principal">
       <a href="#servicos">Atendimentos</a>
+      <a href="#ferramentas">Ferramentas</a>
       <a href="#sobre">Sobre</a>
       <a href="#como">Como funciona</a>
       <button id="tema" aria-label="Alternar tema claro e escuro">◐</button>
@@ -167,14 +187,14 @@ footer p{max-width:none}
       <article class="linha">
         <div class="simb" aria-hidden="true">☽</div>
         <div><h3>Tarot e oráculos</h3></div>
-        <div><p>Leitura com tarot e outros baralhos para olhar uma pergunta específica: relacionamento, trabalho, uma decisão que está pendente. O foco é a reflexão, não a previsão fechada.</p><small>Duração: 60 min (ajustar)</small></div>
+        <div><p>Leitura com tarot e outros baralhos para entender e decidir sobre uma pergunta específica: relacionamento, trabalho, uma decisão que está pendente. O foco é a reflexão, não a previsão fechada.</p><small>Duração: 60 min (ajustar)</small></div>
       </article>
-      <article class="linha">
+      <article class="linha breve">
         <div class="simb" aria-hidden="true">☉</div>
-        <div><h3>Mapa astral</h3></div>
-        <div><p>Interpretação do céu do momento em que você nasceu: temperamento, talentos, desafios e ciclos atuais. Para fazer o mapa, precisamos da data, do horário e do local de nascimento.</p><small>Duração: 90 min (ajustar)</small></div>
+        <div class="titulo"><h3>Mapa astral</h3><span class="aviso">Sem agenda para o momento</span></div>
+        <div class="esmaece"><p>Interpretação do céu do momento em que você nasceu: temperamento, talentos, desafios e ciclos atuais. Para fazer o mapa, precisamos da data, do horário e do local de nascimento.</p></div>
       </article>
-      <article class="linha">
+      <article class="linha" id="mapa-numerologico">
         <div class="simb" aria-hidden="true">∞</div>
         <div><h3>Mapa numerológico</h3></div>
         <div><p>A partir do seu nome e da sua data de nascimento, lemos os números que descrevem seu caminho de vida, suas motivações e o momento que você atravessa.</p><small>Duração: 60 min (ajustar)</small></div>
@@ -188,18 +208,50 @@ footer p{max-width:none}
   </div>
 </section>
 
-<section id="sobre" class="alt">
-  <div class="wrap sobre">
-    <div class="retrato" role="img" aria-label="Espaço reservado para sua foto">Sua foto aqui</div>
-    <div>
-      <h2>Quem atende</h2>
-      <p>Escreva aqui, em primeira pessoa, quem você é: sua formação, há quanto tempo atende e o que te levou a essa prática. Dois ou três parágrafos curtos bastam.</p>
-      <p>Conte também como é um atendimento com você: o tom da conversa, o que a pessoa pode esperar e o que ela não precisa saber de antemão.</p>
+<!-- Quem atende -->
+<section id="ferramentas" class="alt">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Ferramentas gratuitas</h2>
+      <p>Sem cadastro. Tudo acontece no seu aparelho, nada é enviado a servidor.</p>
+    </div>
+    <div class="ferr">
+      <a href="servicos/biorritmo/">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 32h56" stroke-width="1" opacity=".5"/><path d="M4 32c8-24 16-24 24 0s16 24 24 0 6-14 8-12"/></svg>
+        <p class="tag">Biorritmo</p>
+        <h3>Como está sua energia agora?</h3>
+        <p>Veja seus ritmos de energia de hoje e das próximas semanas.</p>
+        <span class="abrir">Abrir ✦</span>
+      </a>
+      <a href="servicos/tattwas/">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="32" cy="32" r="26"/><circle cx="32" cy="32" r="14"/><path d="M32 6v12M32 46v12M6 32h12M46 32h12" stroke-linecap="round"/></svg>
+        <p class="tag">Tattwas</p>
+        <h3>Elemento desse momento, conheça</h3>
+        <p>Descubra o elemento de agora a partir do nascer e do pôr do sol.</p>
+        <span class="abrir">Abrir ✦</span>
+      </a>
     </div>
   </div>
 </section>
 
-<section id="como">
+<section id="sobre">
+  <div class="wrap sobre">
+    <img class="retrato" src="foto.jpeg" alt="Retrato de Marco Guimaraes Jr" width="800" height="1000">
+    <div>
+      <h2>Quem atende</h2>
+      <p class="lema">Você não precisa mais adivinhar o que fazer.</p>
+      <p>Oi! Meu nome é Marco Guimaraes Jr e sou um buscador, como todos nós.</p>
+      <p>Cresci numa casa onde o estudo dos mistérios fazia parte da conversa. Em 1990 comecei a estudar tarot e astrologia, e dali vieram a numerologia, a cabala e outras áreas, em escolas e também por conta própria. Hoje meu trabalho está no tarot e outros oráculos e no mapa numerológico. Os demais estudos entram como complemento.</p>
+      <p>Participei de grupos e classes fechados, primeiro presencialmente e depois também online, nos quais aprendi e pratiquei muito. Agora abro esse trabalho ao público. Tenho cursos e certificados, mas o que mais me ensinou foi conversar com as pessoas e ler o que cada uma trazia.</p>
+      <p>Atendi sobre temas emocionais e espirituais, e também sobre trabalho, negócios e oportunidades profissionais. Em qualquer assunto, trato tudo com seriedade e sigilo.</p>
+      <p>Começo sem perguntas, com um "raio-x" dos principais pontos. Falo um panorama de como você está e do que te trouxe até aqui, e muitas dúvidas se resolvem nesse momento. Depois abro para o que você quiser perguntar. Se o atendimento for por e-mail ou WhatsApp, leio as perguntas que você enviar. As cartas e os números contam uma história, e ela costuma explicar de onde vêm os bloqueios e as dúvidas.</p>
+      <p>Há coisas que não faço: previsão de morte, de gravidez ou de tratamento de doenças, que são assunto para profissionais de cada área. Nada aqui decide por você, nada está escrito em pedra e resultados não são prometidos, porque tudo muda conforme a pessoa muda.</p>
+      <p>Costumo dizer: "Vamos jogar uma luz sobre essa situação, mas quem caminha nela é você."</p>
+    </div>
+  </div>
+</section>
+
+<section id="como" class="alt">
   <div class="wrap">
     <div class="intro"><h2>Como funciona</h2></div>
     <div class="passos">
@@ -214,7 +266,7 @@ footer p{max-width:none}
   <div class="wrap">
     <h2>Vamos conversar sobre o que você precisa?</h2>
     <p>A primeira mensagem não tem compromisso. Responderei assim que possível.</p>
-    <a class="btn" href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    <a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener">Chamar no WhatsApp</a>
   </div>
 </section>
 </main>
@@ -229,12 +281,93 @@ footer p{max-width:none}
 <script>
 // cartas (edite as mensagens livremente)
 var cartas=[
- ["A Lua","☽","Nem tudo está claro agora. Espere antes de decidir e confie no que o corpo já sabe."],
- ["O Sol","☉","Algo que você vem cuidando está pronto para aparecer. Permita-se ser visto."],
- ["A Estrela","✦","Depois do cansaço, vem o alívio. Siga um passo de cada vez."],
- ["A Força","∞","Firmeza não é dureza. Hoje, a gentileza com você mesma(o) é a escolha mais forte."],
- ["O Eremita","✧","Um tempo de silêncio ajuda a ouvir a resposta que você já tem."],
- ["A Roda da Fortuna","☸","Os ciclos mudam. O que parece parado está se reorganizando."]
+// ARCANOS MAIORES
+["O Louco","✧","Um começo pede coragem, não certeza. Dê o primeiro passo mesmo sem ver o caminho todo."],
+["O Mago","✦","Você já tem os recursos de que precisa. Chegou a hora de usá-los com intenção."],
+["A Sacerdotisa","☽","A resposta está no silêncio. Observe antes de agir e confie na sua intuição."],
+["A Imperatriz","✿","Cuide do que você quer ver crescer: relações, projetos, o próprio corpo."],
+["O Imperador","♜","Estrutura traz segurança. Defina limites claros e sustente suas decisões."],
+["O Hierofante","✠","Aprender com quem já percorreu o caminho ajuda. Valorize o que a tradição ensina."],
+["Os Enamorados","♡","Uma escolha pede alinhamento entre o que você sente e o que você faz."],
+["O Carro","➤","Direção e foco levam você adiante. Mantenha as rédeas firmes, sem rigidez."],
+["A Força","∞","Firmeza não é dureza. Hoje, a gentileza com você mesma(o) é a escolha mais forte."],
+["O Eremita","✧","Um tempo de silêncio ajuda a ouvir a resposta que você já tem."],
+["A Roda da Fortuna","☸","Os ciclos mudam. O que parece parado está se reorganizando."],
+["A Justiça","⚖","Seja honesta(o) sobre causas e consequências. Decida com equilíbrio."],
+["O Enforcado","❍","Pausar também é movimento. Olhe a situação por outro ângulo antes de agir."],
+["A Morte","❖","Algo está terminando para abrir espaço ao novo. Deixe ir o que já cumpriu seu papel."],
+["A Temperança","≈","Equilíbrio vem da medida certa. Misture com paciência e evite os extremos."],
+["O Diabo","⛓","Observe o que prende você: hábitos, medos, dependências. Reconhecer é o primeiro passo."],
+["A Torre","⚡","Uma estrutura frágil cai para que algo mais verdadeiro seja construído."],
+["A Estrela","✦","Depois do cansaço, vem o alívio. Siga um passo de cada vez."],
+["A Lua","☽","Nem tudo está claro agora. Espere antes de decidir e confie no que o corpo já sabe."],
+["O Sol","☉","Algo que você vem cuidando está pronto para aparecer. Permita-se ser visto."],
+["O Julgamento","♫","Um chamado para recomeçar. Faça as pazes com o passado e responda ao que vem."],
+["O Mundo","◎","Um ciclo se completa. Reconheça o caminho percorrido antes de começar o próximo."],
+
+// PAUS (ação, energia, criatividade)
+["Ás de Paus","♣","Uma ideia nova e cheia de energia chega. Aproveite o impulso inicial."],
+["Dois de Paus","♣","Você está entre o que conhece e o que pode vir. Planeje antes de dar o salto."],
+["Três de Paus","♣","Seus esforços começam a dar sinais. Mantenha o olhar no horizonte."],
+["Quatro de Paus","♣","Há motivo para celebrar. Reconheça o que já foi construído."],
+["Cinco de Paus","♣","Há disputa e ruído. Escolha com quem e pelo que vale a pena competir."],
+["Seis de Paus","♣","Reconhecimento e vitória. Aceite o crédito pelo que você fez."],
+["Sete de Paus","♣","Defenda sua posição com calma. Você tem motivo para estar onde está."],
+["Oito de Paus","♣","As coisas se movem rápido. Responda com agilidade e comunique-se com clareza."],
+["Nove de Paus","♣","Você está cansada(o), mas perto do fim. Mais um pouco de persistência."],
+["Dez de Paus","♣","Você carrega peso demais. Veja o que pode ser delegado ou deixado de lado."],
+["Valete de Paus","♣","Curiosidade e entusiasmo. Uma novidade pede que você explore sem pressa de concluir."],
+["Cavaleiro de Paus","♣","Muita energia e pouca pausa. Direcione o impulso antes que ele se disperse."],
+["Rainha de Paus","♣","Confiança e calor humano. Você inspira os outros quando age com autenticidade."],
+["Rei de Paus","♣","Liderança com visão. Transforme a ideia em projeto e inspire quem caminha com você."],
+
+// COPAS (emoções, relações, intuição)
+["Ás de Copas","♥","Um sentimento novo pede espaço. Abra-se para dar e receber afeto."],
+["Dois de Copas","♥","Uma conexão de verdade, baseada em troca e respeito mútuo."],
+["Três de Copas","♥","Celebre com quem você ama. A alegria compartilhada multiplica."],
+["Quatro de Copas","♥","Você está desinteressada(o) do que se apresenta. Veja se algo valioso passou despercebido."],
+["Cinco de Copas","♥","Há perda e tristeza. Honre o que foi, mas veja o que ainda permanece de pé."],
+["Seis de Copas","♥","Memórias doces voltam. Elas podem trazer conforto, desde que você não viva nelas."],
+["Sete de Copas","♥","Muitas possibilidades e sonhos. Escolha uma e dê a ela um passo concreto."],
+["Oito de Copas","♥","Partir pode ser um ato de amor-próprio. Reconheça o que já não nutre você."],
+["Nove de Copas","♥","Satisfação e desejo realizado. Permita-se aproveitar o que conquistou."],
+["Dez de Copas","♥","Plenitude emocional e harmonia com quem você ama. Cultive o que já é bom."],
+["Valete de Copas","♥","Uma mensagem afetuosa ou uma ideia criativa chega. Receba com abertura."],
+["Cavaleiro de Copas","♥","Romantismo e sensibilidade. Seja gentil com o coração, o seu e o dos outros."],
+["Rainha de Copas","♥","Empatia e intuição profunda. Cuide de si para continuar podendo cuidar dos outros."],
+["Rei de Copas","♥","Maturidade emocional. Sentir e manter a calma são coisas que podem andar juntas."],
+
+// ESPADAS (mente, comunicação, decisões)
+["Ás de Espadas","♠","Clareza chega como uma luz. Diga a verdade, com cuidado."],
+["Dois de Espadas","♠","Uma decisão adiada. Ouvir o coração e a razão juntos ajuda a desbloquear."],
+["Três de Espadas","♠","Uma dor real. Permita-se sentir, pois nomear a dor já é começar a curá-la."],
+["Quatro de Espadas","♠","Descanse. A mente também precisa de pausa para voltar inteira."],
+["Cinco de Espadas","♠","Nem toda vitória vale o custo. Pergunte-se o que você realmente quer ganhar."],
+["Seis de Espadas","♠","Uma travessia para águas mais calmas. Siga em frente, mesmo devagar."],
+["Sete de Espadas","♠","Atenção a estratégias escondidas. Seja honesta(o) sobre suas intenções e as dos outros."],
+["Oito de Espadas","♠","Você se sente presa(o), mas parte do cerco é mental. Teste os limites que você imagina."],
+["Nove de Espadas","♠","Preocupações pesam mais à noite. Conte o que sente a alguém de confiança."],
+["Dez de Espadas","♠","Um ciclo difícil chega ao fim. O pior já passou e há espaço para recomeçar."],
+["Valete de Espadas","♠","Mente curiosa e atenta. Faça perguntas antes de formar uma opinião."],
+["Cavaleiro de Espadas","♠","Rapidez e franqueza. Pense duas vezes antes de falar o que não pode ser desfeito."],
+["Rainha de Espadas","♠","Clareza e honestidade. Você enxerga o essencial e fala sem rodeios."],
+["Rei de Espadas","♠","Raciocínio justo e firme. Decida com lógica, sem perder a ética."],
+
+// OUROS (trabalho, dinheiro, corpo, material)
+["Ás de Ouros","♦","Uma oportunidade concreta. Plante agora o que você quer colher depois."],
+["Dois de Ouros","♦","Você equilibra várias demandas. Flexibilidade e ritmo ajudam a manter tudo de pé."],
+["Três de Ouros","♦","Trabalho em equipe e talento reconhecido. Seu esforço está sendo visto."],
+["Quatro de Ouros","♦","Segurança é bom, mas apegar-se demais pode limitar. Pergunte do que realmente precisa."],
+["Cinco de Ouros","♦","Um período de escassez. Peça ajuda: ela existe e aceitá-la não é fraqueza."],
+["Seis de Ouros","♦","Dar e receber em equilíbrio. Generosidade com limites saudáveis."],
+["Sete de Ouros","♦","Pare para avaliar o que já foi plantado. A colheita pede paciência."],
+["Oito de Ouros","♦","Dedicação ao ofício. A prática constante é o que forma a maestria."],
+["Nove de Ouros","♦","Independência e conforto conquistados com seu esforço. Aproveite o que construiu."],
+["Dez de Ouros","♦","Estabilidade duradoura, família e herança. Pense no que você quer deixar de legado."],
+["Valete de Ouros","♦","Um novo aprendizado ou projeto prático. Comece pequeno e com constância."],
+["Cavaleiro de Ouros","♦","Passo a passo, sem pressa. A constância leva mais longe que o impulso."],
+["Rainha de Ouros","♦","Cuidado com o corpo, a casa e os recursos. Praticidade com carinho."],
+["Rei de Ouros","♦","Abundância construída com paciência. Use o que você tem com sabedoria."]
 ];
 var el=document.getElementById('carta'),ult=-1;
 el.addEventListener('click',function(){
