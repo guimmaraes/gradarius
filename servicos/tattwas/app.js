@@ -154,6 +154,7 @@
     $('l-por').textContent = T.formulario.por;
     ['nascer', 'por', 'outro'].forEach(function (id) { $(id).placeholder = T.formulario.dica; });
     $('t-ajuda').textContent = T.formulario.ajuda;
+    $('btn-local').textContent = T.formulario.local;
     $('l-outro-resumo').textContent = T.formulario.outro;
     $('l-outro').textContent = T.formulario.outroRotulo;
     $('l-lembrar').textContent = T.formulario.lembrar;
@@ -305,6 +306,29 @@
     img.src = url;
   }
 
+  /* ---------- localização: nascer e pôr do sol de hoje, calculados no aparelho ---------- */
+  function usarLocalizacao() {
+    var aviso = $('t-local'), botao = $('btn-local');
+    function dizer(msg) { aviso.textContent = msg; }
+    if (!navigator.geolocation) { dizer(T.formulario.localFalha); return; }
+    botao.disabled = true;
+    dizer(T.formulario.localBuscando);
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      botao.disabled = false;
+      var d = new Date();
+      var sol = Z.solNascerPor(pos.coords.latitude, pos.coords.longitude,
+                               d.getFullYear(), d.getMonth() + 1, d.getDate(), -d.getTimezoneOffset());
+      if (!sol) { dizer(T.formulario.localSemSol); return; }
+      $('nascer').value = Z.formatar(sol.nascer);
+      $('por').value = Z.formatar(sol.por);
+      ['nascer', 'por'].forEach(function (id) { $('erro-' + id).textContent = ''; $(id).removeAttribute('aria-invalid'); });
+      dizer(T.formulario.localOk + ' ' + T.formulario.localPriv);
+    }, function (err) {
+      botao.disabled = false;
+      dizer(err && err.code === 1 ? T.formulario.localNegado : T.formulario.localFalha);
+    }, { timeout: 10000, maximumAge: 3600000 });
+  }
+
   /* ---------- início ---------- */
   function iniciar() {
     preencherTextos();
@@ -312,6 +336,7 @@
     atualizarBotaoTema();
     $('form').addEventListener('submit', enviar);
     $('btn-salvar').addEventListener('click', salvarImagem);
+    $('btn-local').addEventListener('click', usarLocalizacao);
     $('btn-tema').addEventListener('click', function () {
       var novo = escuro() ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', novo);

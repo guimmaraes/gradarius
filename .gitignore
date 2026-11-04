@@ -34,3 +34,13 @@ node_modules/
 
 # Originais (fotos em alta resolucao ficam so na maquina)
 originais/
+
+# Internos e fora do site (nunca vao para o repositorio publico)
+*.md
+CLAUDE.md
+BRIEFING*
+decks/waite-Pamela-A/
+gerador.html
+cartas-78.js
+bannerW1.png
+gradarius-divulgacao-feed.png

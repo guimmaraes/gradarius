@@ -100,6 +100,22 @@ body{font:16px/1.5 system-ui,sans-serif;max-width:760px;margin:2rem auto;padding
   t('24h à esquerda (270°)', Z.angulo(0) === 270);
   t('3h a 315°', Z.angulo(180) === 315);
 
+  /* sol (referência: api.sunrise-sunset.org em 04/11/2026; tolerância de 2 min) */
+  function perto(a, b) { return Math.abs(a - b) <= 2; }
+  var sp1 = Z.solNascerPor(-23.55, -46.63, 2026, 12, 21, -180);
+  t('São Paulo, 21/12: nascer 05:17 e pôr 18:52', sp1 && perto(sp1.nascer, h('05:17')) && perto(sp1.por, h('18:52')),
+    sp1 && Z.formatar(sp1.nascer) + ' / ' + Z.formatar(sp1.por));
+  var sp2 = Z.solNascerPor(-23.55, -46.63, 2026, 6, 21, -180);
+  t('São Paulo, 21/06: nascer 06:48 e pôr 17:29', sp2 && perto(sp2.nascer, h('06:48')) && perto(sp2.por, h('17:29')),
+    sp2 && Z.formatar(sp2.nascer) + ' / ' + Z.formatar(sp2.por));
+  var eq = Z.solNascerPor(0, -45, 2026, 3, 20, -180);
+  t('Equador, equinócio: dia de ~12h07 (tolerância de 5 min)', eq && Math.abs((eq.por - eq.nascer) - 727) <= 5,
+    eq && (eq.por - eq.nascer));
+  t('Polo no verão: sol sem se pôr devolve null', Z.solNascerPor(85, 0, 2026, 6, 21, 0) === null);
+  t('Polo no inverno: sol sem nascer devolve null', Z.solNascerPor(85, 0, 2026, 12, 21, 0) === null);
+  var tb = Z.blocos(sp1.nascer, sp1.por);
+  t('o resultado do sol alimenta os blocos', tb !== null && tb.length > 0);
+
   var r = document.getElementById('resumo');
   r.textContent = falhas ? falhas + ' de ' + total + ' testes FALHARAM' : 'Todos os ' + total + ' testes passaram.';
   r.className = falhas ? 'erro' : 'ok';

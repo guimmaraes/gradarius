@@ -67,6 +67,8 @@ input[aria-invalid=true]{border-color:var(--erro)}
 .btn:hover{background:var(--brass-2)}
 .btn.sec{background:transparent;color:var(--text)}
 .btn.sec:hover{background:rgba(184,147,74,.15)}
+.btn-local{margin:.9rem 0 0}
+#t-local:empty{display:none}
 .form .btn{width:100%}
 
 /* seções */
