@@ -34,6 +34,9 @@ header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper
 .logo{font-family:var(--serif);font-size:1.7rem;font-weight:600;letter-spacing:.02em;text-decoration:none;color:var(--text)}
 .logo span{color:var(--brass)}
 .logo small{font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-left:.8rem}
+.dir{display:flex;align-items:center;gap:1rem}
+.voltar{color:var(--muted);font-weight:600;font-size:.95rem;text-decoration:none}
+.voltar:hover{color:var(--text)}
 #tema{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;font-size:1.1rem}
 
 .hero{background:radial-gradient(1200px 500px at 85% 0%,#3a3478 0%,transparent 60%),#1e1b3a;color:#f3f1fb;padding:3.5rem 0 1rem;text-align:center}
@@ -112,7 +115,10 @@ footer .ornamento{color:var(--brass);font-size:1.2rem}
 <body>
 <header><div class="wrap bar">
   <a class="logo" id="logo" href="#topo">Gradar<span>ius</span><small>Roda dos Ciclos</small></a>
-  <button id="tema" aria-label="Alternar tema claro e escuro">◐</button>
+  <div class="dir">
+    <a class="voltar" id="voltar" href="../../" hidden>Voltar ao site</a>
+    <button id="tema" aria-label="Alternar tema claro e escuro">◐</button>
+  </div>
 </div></header>
 
 <main id="topo">
@@ -416,6 +422,7 @@ if (bruto.charAt(0) === '{') {   // dados embutidos pelo gerar_web.py (o marcado
   form.hidden = false;
   document.body.classList.add('entrada');
   $('logo').href = '../../';
+  $('voltar').hidden = false;
   const lib = document.createElement('script');
   lib.src = 'ciclo.js';
   document.head.appendChild(lib);

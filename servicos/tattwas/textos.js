@@ -9,14 +9,15 @@ window.TEXTOS = {
   topo: {
     titulo: 'Os cinco elementos do dia',
     destaque: 'A sequência dos Tattwas.',
-    texto: 'Informe a hora em que o sol nasce e a hora em que se põe no seu local. Veja o elemento de agora.'
+    texto: 'Veja o elemento de agora. Use a sua localização ou digite os horários do sol.'
   },
 
   formulario: {
     nascer: 'Hora do nascer do sol',
     por: 'Hora do pôr do sol',
     dica: 'hh:mm',
-    ajuda: 'Consulte no celular ou em um almanaque o horário do seu local.',
+    ajuda: 'Consulte no celular ou em um almanaque.',
+    ou: 'ou digite os horários',
     local: 'Usar minha localização',
     localBuscando: 'Buscando a localização…',
     localOk: 'Horários de hoje para a sua localização. Você pode ajustar.',

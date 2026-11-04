@@ -35,6 +35,9 @@ try { var t = localStorage.getItem('gradarius-tema'); if (t) document.documentEl
       <p class="lead" id="t-lead"></p>
 
       <form class="cartao form" id="form" novalidate>
+        <button class="btn btn-local" type="button" id="btn-local"></button>
+        <p class="nota" id="t-local" role="status"></p>
+        <p class="ou-linha" id="t-ou" aria-hidden="true"></p>
         <div class="par">
           <div class="campo">
             <label for="nascer" id="l-nascer"></label>
@@ -48,8 +51,6 @@ try { var t = localStorage.getItem('gradarius-tema'); if (t) document.documentEl
           </div>
         </div>
         <p class="nota ajuda" id="t-ajuda"></p>
-        <button class="btn sec btn-local" type="button" id="btn-local"></button>
-        <p class="nota" id="t-local" role="status"></p>
         <details class="mais">
           <summary id="l-outro-resumo"></summary>
           <div class="campo">

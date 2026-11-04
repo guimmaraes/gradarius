@@ -155,6 +155,7 @@
     ['nascer', 'por', 'outro'].forEach(function (id) { $(id).placeholder = T.formulario.dica; });
     $('t-ajuda').textContent = T.formulario.ajuda;
     $('btn-local').textContent = T.formulario.local;
+    $('t-ou').textContent = T.formulario.ou;
     $('l-outro-resumo').textContent = T.formulario.outro;
     $('l-outro').textContent = T.formulario.outroRotulo;
     $('l-lembrar').textContent = T.formulario.lembrar;

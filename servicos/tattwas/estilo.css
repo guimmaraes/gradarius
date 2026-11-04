@@ -67,7 +67,9 @@ input[aria-invalid=true]{border-color:var(--erro)}
 .btn:hover{background:var(--brass-2)}
 .btn.sec{background:transparent;color:var(--text)}
 .btn.sec:hover{background:rgba(184,147,74,.15)}
-.btn-local{margin:.9rem 0 0}
+.btn-local{width:100%}
+.ou-linha{display:flex;align-items:center;gap:.8rem;color:var(--muted);font-size:.95rem;margin:1.1rem 0 .9rem}
+.ou-linha::before,.ou-linha::after{content:"";flex:1;border-top:1px solid var(--line)}
 #t-local:empty{display:none}
 .form .btn{width:100%}
 
