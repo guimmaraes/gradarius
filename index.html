@@ -4,16 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gradarius | Terapia holística, tarot, mapa astral e numerologia</title>
-<meta name="description" content="Atendimentos de terapia holística com tarot e oráculos, mapa astral, mapa numerológico e florais. Agende uma conversa.">
+<meta name="description" content="Tarot, Lenormand, Numerologia e astrologia para decidir com mais clareza: no trabalho, no negócio e nas relações. Atendimento online.">
 <meta property="og:title" content="Gradarius | Holística">
-<meta property="og:description" content="Tarot, oráculos, mapa astral, mapa numerológico e florais.">
+<meta property="og:description" content="Tarot, Lenormand, Numerologia e astrologia para decidir com mais clareza. Atendimento online.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://www.gradarius.com.br/">
+<meta property="og:site_name" content="Gradarius">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://www.gradarius.com.br/og-gradarius.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gradarius: você não precisa mais adivinhar o que fazer.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.gradarius.com.br/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "Gradarius", "url": "https://www.gradarius.com.br/", "inLanguage": "pt-BR"}, {"@type": "ProfessionalService", "name": "Gradarius", "url": "https://www.gradarius.com.br/", "description": "Tarot, Lenormand, Numerologia e astrologia para decidir com mais clareza. Atendimento online.", "founder": {"@type": "Person", "name": "Marco Guimaraes Jr"}, "email": "contato@nanolitika.com.br", "telephone": "+55 41 98736-2764", "areaServed": "BR", "availableLanguage": "pt-BR", "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mapa Numerológico (arquivos)"}, "price": "190.00", "priceCurrency": "BRL"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mapa Numerológico + 1 hora de conversa online"}, "price": "300.00", "priceCurrency": "BRL"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tarot e Lenormand pelo WhatsApp"}, "price": "190.00", "priceCurrency": "BRL"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consulta online de 1 hora (Tarot e Lenormand)"}, "price": "300.00", "priceCurrency": "BRL"}]}]}</script>
 <meta name="theme-color" content="#1e1b3a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="fontes/cormorant-garamond-latin-600-normal.ttf" as="font" type="font/ttf" crossorigin>
 <style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(fontes/cormorant-garamond-latin-500-normal.ttf) format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(fontes/cormorant-garamond-latin-600-normal.ttf) format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(fontes/cormorant-garamond-latin-500-italic.ttf) format('truetype')}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:400 500;font-display:swap;src:url(fontes/figtree-latin-400-normal.ttf) format('truetype')}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:600;font-display:swap;src:url(fontes/figtree-latin-600-normal.ttf) format('truetype')}
 :root{
   --ink:#1e1b3a; --ink-2:#2c2852; --moon:#f1eff8; --paper:#fbfaff;
   --text:#25223f; --muted:#625f80; --brass:#b8934a; --rose:#d9a5b3; --sage:#7fa08b;
@@ -56,12 +69,14 @@ nav a:hover{color:var(--text)}
 .hero h1{font-size:clamp(2.7rem,6vw,4.6rem);margin-bottom:1.3rem}
 .hero h1 em{font-style:italic;color:var(--rose)}
 .hero p{color:#cfcbe8;font-size:1.15rem;margin-bottom:2rem}
+.hero p.sub1{margin-bottom:1rem}
+.hero p.leve{font-size:1rem;color:#b9b5da}
 .cta{display:flex;gap:1rem;flex-wrap:wrap}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero{padding:3.5rem 0 4rem}}
 
 /* carta interativa */
 .deck{display:flex;flex-direction:column;align-items:center;gap:1.2rem}
-.carta{width:min(260px,70vw);aspect-ratio:2/3.2;perspective:1000px;background:none;border:0;cursor:pointer;padding:0}
+.carta{width:min(260px,70vw);aspect-ratio:1112/1920;perspective:1000px;background:none;border:0;cursor:pointer;padding:0}
 .carta-in{position:relative;width:100%;height:100%;transition:transform .9s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d}
 .carta.virada .carta-in{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.4rem}
@@ -72,7 +87,14 @@ nav a:hover{color:var(--text)}
 .frente b{font-family:var(--serif);font-size:1.9rem;line-height:1.1;margin-bottom:.8rem}
 .frente span{font-size:.97rem;line-height:1.5}
 .frente i{font-style:normal;font-size:2.4rem;color:var(--brass);margin-bottom:.6rem}
-.dica{font-size:.95rem;color:#b9b5da}
+.frente.com-img{padding:0;background:#15132b;overflow:hidden}
+.frente.com-img>*:not(img){display:none}
+.frente img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:14px}
+.leg{text-align:center;max-width:34ch;min-height:5.5rem}
+.leg b{display:block;font-family:var(--serif);font-size:1.7rem;font-weight:600;line-height:1.1;color:#f3f1fb;margin-bottom:.35rem}
+.leg span{color:#cfcbe8;font-size:.97rem;line-height:1.5}
+.dica{font-family:var(--serif);font-style:italic;font-size:1.3rem;line-height:1.3;color:#f3f1fb;text-align:center;max-width:30ch;order:1}
+.leg{order:2}
 @keyframes gira{to{transform:rotate(360deg)}}
 
 /* secoes */
@@ -85,6 +107,7 @@ section{padding:5.5rem 0}
 .serv{border-top:1px solid var(--line)}
 .linha{display:grid;grid-template-columns:90px 1fr 1.3fr;gap:1.5rem 2rem;padding:2rem 0;border-bottom:1px solid var(--line);align-items:start}
 .simb{font-family:var(--serif);font-size:3.2rem;line-height:1;color:var(--brass)}
+.simb svg{width:.95em;height:.95em;display:block}
 .linha h3{font-size:1.9rem}
 .linha p{color:var(--muted)}
 .linha small{display:block;margin-top:.6rem;color:var(--sage);font-weight:600;font-size:.95rem}
@@ -96,24 +119,66 @@ section{padding:5.5rem 0}
 @media(max-width:760px){.linha{grid-template-columns:1fr}.simb{font-size:2.4rem}}
 
 /* ferramentas gratuitas */
-.ferr{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.ferr a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2rem;text-decoration:none;transition:transform .2s,border-color .2s}
+.ferr{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.ferr a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.6rem;text-decoration:none;transition:transform .2s,border-color .2s}
 .ferr a:hover{transform:translateY(-3px);border-color:var(--brass)}
 .ferr svg{width:56px;height:56px;margin-bottom:1rem;color:var(--brass)}
 .ferr .tag{font-size:.9rem;font-weight:600;color:var(--sage);margin-bottom:.4rem}
-.ferr h3{font-size:1.9rem;margin-bottom:.6rem}
+.ferr h3{font-size:1.55rem;margin-bottom:.6rem}
 .ferr p{color:var(--muted)}
 .ferr .abrir{display:inline-block;margin-top:1.2rem;font-weight:600;color:var(--brass)}
-@media(max-width:760px){.ferr{grid-template-columns:1fr}}
+.wrap p.sup{font-size:.9rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin-bottom:.6rem}
+/* os 3 graus */
+.graus{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.grau{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.8rem}
+.grau .num{font-family:var(--serif);font-size:2.6rem;color:var(--brass);line-height:1}
+.grau h3{font-size:1.6rem;margin:.5rem 0 .6rem}
+.grau p{color:var(--muted)}
+.grau a{margin-top:auto;padding-top:1.2rem;font-weight:600;color:var(--brass);text-decoration:none}
+.grau a:hover{text-decoration:underline}
+@media(max-width:760px){.graus{grid-template-columns:1fr}}
+.proximo{margin-top:2rem;max-width:none;text-align:center}
+.proximo a{color:var(--brass);font-weight:600;text-decoration:none}
+.proximo a:hover{text-decoration:underline}
+
+/* Grau II: mapa numerologico */
+.mapa{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start}
+.mapa h3{font-size:1.5rem;margin:1.6rem 0 .6rem}
+.mapa h2+p{color:var(--muted)}
+.arquivos{list-style:none;padding:0}
+.arquivos li{padding-left:1.4rem;position:relative;margin:.5rem 0;color:var(--muted)}
+.arquivos li::before{content:"✦";position:absolute;left:0;color:var(--brass)}
+.opcoes{display:grid;gap:1rem;margin-bottom:1.6rem}
+.opcao{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.3rem 1.5rem}
+.opcao.rec{border-color:var(--brass)}
+.opcao b{font-family:var(--serif);font-size:1.4rem}
+.opcao p{color:var(--muted);margin-top:.2rem}
+.opcao .preco{color:var(--text);font-weight:600}
+.selo{position:absolute;top:-.7rem;right:1.2rem;background:var(--brass);color:#1b1630;font-size:.8rem;font-weight:600;padding:.1rem .8rem;border-radius:999px}
+@media(max-width:860px){.mapa{grid-template-columns:1fr}}
+.opcoes.duas{grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:3rem}
+.opcoes.duas .opcao{padding:1.6rem}
+.opcoes.duas .btn{margin-top:1.1rem}
+.outros{font-size:1.5rem;margin-bottom:1rem;color:var(--muted)}
+@media(max-width:760px){.opcoes.duas{grid-template-columns:1fr}}
+@media(max-width:1000px){.ferr{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.ferr{grid-template-columns:1fr}}
 
 /* sobre e foto */
-.sobre{display:grid;grid-template-columns:.8fr 1.2fr;gap:3.5rem;align-items:center}
-.retrato{aspect-ratio:4/5;border-radius:200px 200px 16px 16px;background:linear-gradient(160deg,var(--ink-2),var(--ink));display:grid;place-items:center;color:var(--brass);font-family:var(--serif);font-size:1.2rem;text-align:center;padding:2rem;border:1px solid var(--brass)}
-img.retrato{width:100%;max-width:340px;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 15%;display:block;padding:0;justify-self:center}
+.sobre{display:block;max-width:760px}
+.sobre-topo{display:flex;align-items:center;gap:1.4rem;margin-bottom:1.4rem}
+.sobre-topo h2{margin-bottom:.2rem}
+img.retrato{width:96px;height:96px;flex:none;border-radius:50%;object-fit:cover;object-position:center 15%;border:1px solid var(--brass)}
 .sobre p+p{margin-top:1rem}
-.lema{font-family:var(--serif);font-style:italic;font-size:1.7rem;line-height:1.3;color:var(--brass);margin-bottom:1.4rem}
-.sobre p.lema+p{margin-top:0}
-@media(max-width:860px){.sobre{grid-template-columns:1fr}.retrato{max-width:300px}}
+.lema{font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1.3;color:var(--brass);margin:0}
+.cta-sobre{margin-top:1.4rem}
+details.historia{margin-top:1rem}
+details.historia>summary{cursor:pointer;color:var(--brass);font-weight:600;list-style:none}
+details.historia>summary::-webkit-details-marker{display:none}
+details.historia>summary::after{content:" ▾"}
+details.historia[open]>summary::after{content:" ▴"}
+details.historia p{margin-top:1rem}
+.sobre p.obs{font-size:.85rem;line-height:1.5;color:var(--muted);margin-top:1.6rem;padding-top:1rem;border-top:1px solid var(--line)}
 
 /* como funciona: aqui a ordem importa */
 .passos{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;counter-reset:p}
@@ -127,9 +192,21 @@ img.retrato{width:100%;max-width:340px;height:auto;aspect-ratio:4/5;object-fit:c
 .contato{background:var(--ink);color:#f3f1fb;text-align:center}
 .contato p{margin:0 auto 2rem;color:#cfcbe8}
 .contato h2{max-width:20ch;margin-inline:auto}
-footer{background:var(--ink);color:#9a96c0;font-size:.92rem;padding:1.6rem 0;border-top:1px solid rgba(255,255,255,.1)}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
+footer{background:var(--ink);color:#b9b5da;font-size:.95rem;padding:3.5rem 0 1.6rem;border-top:1px solid rgba(255,255,255,.1)}
+.rodape{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2.5rem}
+.rodape .marca{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:#f3f1fb;line-height:1}
+.rodape .marca span{color:var(--brass)}
+.rodape .marca-sub{margin-top:.8rem;color:#9a96c0;max-width:26ch}
+.rodape h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#f3f1fb;letter-spacing:.04em;margin-bottom:.9rem}
+.rodape h4::before{content:"◆";color:var(--brass);font-size:.6rem;margin-right:.6rem;vertical-align:.2em}
+.rodape ul{list-style:none;padding:0}
+.rodape li{margin:.55rem 0}
+.rodape a{color:#b9b5da;text-decoration:none}
+.rodape a:hover{color:#fff;text-decoration:underline}
+.rodape-fim{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.88rem;color:#9a96c0}
 footer p{max-width:none}
+@media(max-width:860px){.rodape{grid-template-columns:1fr 1fr}.rodape>div:first-child{grid-column:1/-1}}
+@media(max-width:480px){.rodape{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -139,10 +216,10 @@ footer p{max-width:none}
   <div class="wrap bar">
     <a class="logo" href="#topo">Gradar<span>ius</span></a>
     <nav aria-label="Principal">
-      <a href="#servicos">Atendimentos</a>
       <a href="#ferramentas">Ferramentas</a>
+      <a href="#mapa-numerologico">Mapa</a>
+      <a href="#servicos">Atendimentos</a>
       <a href="#sobre">Sobre</a>
-      <a href="#como">Como funciona</a>
       <button id="tema" aria-label="Alternar tema claro e escuro">◐</button>
       <a class="btn" href="#contato">Agendar</a>
     </nav>
@@ -153,11 +230,12 @@ footer p{max-width:none}
 <div class="hero">
   <div class="wrap">
     <div>
-      <h1>Um espaço para olhar para dentro e <em>decidir</em> com mais clareza</h1>
-      <p>Tarot e oráculos, mapa astral, mapa numerológico e florais, em atendimentos individuais, presenciais ou online.</p>
+      <h1>Você não precisa mais <em>adivinhar</em> o que fazer.</h1>
+      <p class="sub1">Clareza vem por graus. Comece pelo primeiro: tire uma carta.</p>
+      <p class="leve">Tarot e oráculos, mapa astral, Mapa Numerológico e florais, em atendimentos individuais e online.</p>
       <div class="cta">
-        <a class="btn" href="#contato">Agendar uma conversa</a>
-        <a class="btn ghost" href="#servicos">Conhecer os atendimentos</a>
+        <a class="btn ir-carta" href="#carta">Tirar uma carta</a>
+        <a class="btn ghost" href="#contato">Agendar uma conversa</a>
       </div>
     </div>
     <div class="deck">
@@ -169,53 +247,61 @@ footer p{max-width:none}
               <path d="M50 4v92M4 50h92M17 17l66 66M83 17L17 83"/>
             </svg>
           </div>
-          <div class="face frente"><i id="c-simb">✦</i><b id="c-nome">—</b><span id="c-msg"></span></div>
+          <div class="face frente" id="frente"><img id="c-img" alt="" hidden><i id="c-simb">✦</i><b id="c-nome">—</b><span id="c-msg"></span></div>
         </div>
       </button>
-      <p class="dica" id="dica">Toque na carta para receber uma mensagem</p>
+      <div class="leg" id="leg" aria-live="polite"><b id="l-nome"></b><span id="l-msg"></span></div>
+      <p class="dica" id="dica">Feche os olhos, veja a sua situação, visualize a sua pergunta e clique na carta.</p>
     </div>
   </div>
 </div>
 
-<section id="servicos">
+<!-- Os 3 graus -->
+<section id="graus">
   <div class="wrap">
     <div class="intro">
-      <h2>Atendimentos</h2>
-      <p>Cada prática é uma forma diferente de organizar o que você sente. Você escolhe uma, ou combina mais de uma.</p>
+      <h2>Três graus, um de cada vez</h2>
+      <p>Você não precisa subir tudo hoje. Comece onde fizer sentido e avance quando quiser.</p>
     </div>
-    <div class="serv">
-      <article class="linha">
-        <div class="simb" aria-hidden="true">☽</div>
-        <div><h3>Tarot e oráculos</h3></div>
-        <div><p>Leitura com tarot e outros baralhos para entender e decidir sobre uma pergunta específica: relacionamento, trabalho, uma decisão que está pendente. O foco é a reflexão, não a previsão fechada.</p><small>Duração: 60 min (ajustar)</small></div>
+    <div class="graus">
+      <article class="grau">
+        <span class="num">I</span>
+        <h3>Comece por aqui</h3>
+        <p>Gratuito, sem cadastro. Uma carta, biorritmo, tattwas e a Roda dos Ciclos.</p>
+        <a href="#ferramentas">Ver ferramentas →</a>
       </article>
-      <article class="linha breve">
-        <div class="simb" aria-hidden="true">☉</div>
-        <div class="titulo"><h3>Mapa astral</h3><span class="aviso">Sem agenda para o momento</span></div>
-        <div class="esmaece"><p>Interpretação do céu do momento em que você nasceu: temperamento, talentos, desafios e ciclos atuais. Para fazer o mapa, precisamos da data, do horário e do local de nascimento.</p></div>
+      <article class="grau">
+        <span class="num">II</span>
+        <h3>Você pela Numerologia</h3>
+        <p>Seu nome e sua data de nascimento viram um retrato do seu caminho, em PDF.</p>
+        <a href="#mapa-numerologico">Ver o mapa →</a>
       </article>
-      <article class="linha" id="mapa-numerologico">
-        <div class="simb" aria-hidden="true">∞</div>
-        <div><h3>Mapa numerológico</h3></div>
-        <div><p>A partir do seu nome e da sua data de nascimento, lemos os números que descrevem seu caminho de vida, suas motivações e o momento que você atravessa.</p><small>Duração: 60 min (ajustar)</small></div>
-      </article>
-      <article class="linha">
-        <div class="simb" aria-hidden="true">✿</div>
-        <div><h3>Florais</h3></div>
-        <div><p>Conversa sobre o que você vem sentindo e preparo de uma combinação de florais, com orientação de uso. Um apoio para o equilíbrio emocional, que não substitui acompanhamento médico ou psicológico.</p><small>Duração: 60 min (ajustar)</small></div>
+      <article class="grau">
+        <span class="num">III</span>
+        <h3>Você no seu dia a dia</h3>
+        <p>Tarot e Lenormand, pelo WhatsApp ou em consulta online de 1 hora.</p>
+        <a href="#servicos">Ver atendimentos →</a>
       </article>
     </div>
   </div>
 </section>
 
-<!-- Quem atende -->
+<!-- Grau I · Comece por aqui -->
 <section id="ferramentas" class="alt">
   <div class="wrap">
     <div class="intro">
-      <h2>Ferramentas gratuitas</h2>
-      <p>Sem cadastro. Tudo acontece no seu aparelho, nada é enviado a servidor.</p>
+      <p class="sup">Grau I · Ferramentas gratuitas</p>
+      <h2>Comece por aqui</h2>
+      <p>Sem cadastro. Sua data de nascimento é usada só para o cálculo e não é guardada.</p>
     </div>
     <div class="ferr">
+      <a href="#carta" class="ir-carta">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="6" width="32" height="52" rx="5"/><path d="M32 22l3 7 7 1-5.5 5 1.5 7-6-4-6 4 1.5-7-5.5-5 7-1z"/></svg>
+        <p class="tag">Carta de conselho</p>
+        <h3>Que conselho há para você hoje?</h3>
+        <p>Feche os olhos, pense na sua pergunta e escolha uma carta.</p>
+        <span class="abrir">Tirar uma carta ✦</span>
+      </a>
       <a href="servicos/biorritmo/">
         <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 32h56" stroke-width="1" opacity=".5"/><path d="M4 32c8-24 16-24 24 0s16 24 24 0 6-14 8-12"/></svg>
         <p class="tag">Biorritmo</p>
@@ -226,28 +312,113 @@ footer p{max-width:none}
       <a href="servicos/tattwas/">
         <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="32" cy="32" r="26"/><circle cx="32" cy="32" r="14"/><path d="M32 6v12M32 46v12M6 32h12M46 32h12" stroke-linecap="round"/></svg>
         <p class="tag">Tattwas</p>
-        <h3>Elemento desse momento, conheça</h3>
+        <h3>Qual elemento rege este momento?</h3>
         <p>Descubra o elemento de agora a partir do nascer e do pôr do sol.</p>
         <span class="abrir">Abrir ✦</span>
       </a>
+      <a href="servicos/roda-ciclos/">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="32" cy="32" r="26"/><circle cx="32" cy="32" r="17"/><circle cx="32" cy="32" r="8"/><path d="M32 6v8"/></svg>
+        <p class="tag">Roda dos Ciclos</p>
+        <h3>Em que ciclo você está hoje?</h3>
+        <p>Três ciclos num só olhar: o ano, a alma e as horas do dia. Informe sua data de nascimento e veja o que o momento sugere.</p>
+        <span class="abrir">Abrir ✦</span>
+      </a>
+    </div>
+    <p class="proximo"><a href="#mapa-numerologico">Gostou? O próximo passo é o seu mapa →</a></p>
+  </div>
+</section>
+
+<!-- Grau II · Conheça seu mapa -->
+<section id="mapa-numerologico">
+  <div class="wrap mapa">
+    <div>
+      <p class="sup">Grau II · Você pela Numerologia</p>
+      <h2>Mapa Numerológico</h2>
+      <p>Seu nome e sua data de nascimento viram um retrato do seu caminho: 14 números que falam de propósito, motivações e do momento que você atravessa, como um mapa objetivo e direto da sua viagem nessa vida.</p>
+      <h3>Você recebe 2 arquivos</h3>
+      <ul class="arquivos">
+        <li>Mapa visual em PDF, colorido, para guardar e compartilhar</li>
+        <li>Versão para impressão, com o texto completo, para ler e anotar</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Escolha como receber</h3>
+      <div class="opcoes">
+        <div class="opcao">
+          <b>Só o mapa</b>
+          <p class="preco">R$ 190 no Pix · R$ 200 no cartão</p>
+        </div>
+        <div class="opcao rec">
+          <span class="selo">Recomendado</span>
+          <b>Mapa + 1 hora de conversa</b>
+          <p>Online (Google Meet), para tirar dúvidas comigo.</p>
+          <p class="preco">R$ 300 no Pix · R$ 315 no cartão</p>
+        </div>
+      </div>
+      <a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20meu%20Mapa%20Numerol%C3%B3gico." target="_blank" rel="noopener">Quero meu mapa</a>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" class="alt">
+  <div class="wrap">
+    <div class="intro">
+      <p class="sup">Grau III · Você no seu dia a dia</p>
+      <h2>Tarot e Lenormand</h2>
+      <p>Uma decisão no trabalho ou no negócio. Um relacionamento que pede clareza. Uma dúvida sobre você mesmo(a). Com Tarot, Lenormand e outros baralhos, eu ajudo você a organizar o que está confuso e a escolher com mais segurança. A decisão é sempre sua.</p>
+    </div>
+    <div class="opcoes duas">
+      <div class="opcao">
+        <b>Pelo WhatsApp</b>
+        <p>Você me envia suas perguntas. Eu respondo com mensagem, foto das cartas e um áudio explicando.</p>
+        <p class="preco">R$ 190 no Pix · R$ 200 no cartão</p>
+        <a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20um%20atendimento%20de%20Tarot%20e%20Lenormand%20pelo%20WhatsApp." target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
+      </div>
+      <div class="opcao">
+        <b>Consulta online de 1 hora</b>
+        <p>Conversa ao vivo por videochamada, sem pressa.</p>
+        <p class="preco">R$ 300 no Pix · R$ 315 no cartão</p>
+        <a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20online%20de%201%20hora." target="_blank" rel="noopener">Agendar a consulta</a>
+      </div>
+    </div>
+    <h3 class="outros">Outros atendimentos</h3>
+    <div class="serv">
+      <article class="linha breve">
+        <div class="simb" aria-hidden="true">☉</div>
+        <div class="titulo"><h3>Mapa astral</h3><span class="aviso">Sem agenda para o momento</span></div>
+        <div class="esmaece"><p>Interpretação do céu do momento em que você nasceu: temperamento, talentos, desafios e ciclos atuais. Para fazer o mapa, precisamos da data, do horário e do local de nascimento.</p></div>
+      </article>
+      <article class="linha">
+        <div class="simb" aria-hidden="true">✿</div>
+        <div><h3>Florais</h3></div>
+        <div><p>Conversa sobre o que você vem sentindo e preparo de uma combinação de florais, com orientação de uso. Um apoio para o equilíbrio emocional, que não substitui acompanhamento médico ou psicológico.</p></div>
+      </article>
     </div>
   </div>
 </section>
 
 <section id="sobre">
   <div class="wrap sobre">
-    <img class="retrato" src="foto.jpeg" alt="Retrato de Marco Guimaraes Jr" width="800" height="1000">
-    <div>
-      <h2>Quem atende</h2>
-      <p class="lema">Você não precisa mais adivinhar o que fazer.</p>
-      <p>Oi! Meu nome é Marco Guimaraes Jr e sou um buscador, como todos nós.</p>
-      <p>Cresci numa casa onde o estudo dos mistérios fazia parte da conversa. Em 1990 comecei a estudar tarot e astrologia, e dali vieram a numerologia, a cabala e outras áreas, em escolas e também por conta própria. Hoje meu trabalho está no tarot e outros oráculos e no mapa numerológico. Os demais estudos entram como complemento.</p>
-      <p>Participei de grupos e classes fechados, primeiro presencialmente e depois também online, nos quais aprendi e pratiquei muito. Agora abro esse trabalho ao público. Tenho cursos e certificados, mas o que mais me ensinou foi conversar com as pessoas e ler o que cada uma trazia.</p>
-      <p>Atendi sobre temas emocionais e espirituais, e também sobre trabalho, negócios e oportunidades profissionais. Em qualquer assunto, trato tudo com seriedade e sigilo.</p>
-      <p>Começo sem perguntas, com um "raio-x" dos principais pontos. Falo um panorama de como você está e do que te trouxe até aqui, e muitas dúvidas se resolvem nesse momento. Depois abro para o que você quiser perguntar. Se o atendimento for por e-mail ou WhatsApp, leio as perguntas que você enviar. As cartas e os números contam uma história, e ela costuma explicar de onde vêm os bloqueios e as dúvidas.</p>
-      <p>Há coisas que não faço: previsão de morte, de gravidez ou de tratamento de doenças, que são assunto para profissionais de cada área. Nada aqui decide por você, nada está escrito em pedra e resultados não são prometidos, porque tudo muda conforme a pessoa muda.</p>
-      <p>Costumo dizer: "Vamos jogar uma luz sobre essa situação, mas quem caminha nela é você."</p>
+    <div class="sobre-topo">
+      <img class="retrato" src="foto.jpeg" alt="Retrato de Marco Guimaraes Jr" width="96" height="96">
+      <div>
+        <h2>Quem atende</h2>
+        <p class="lema">Você não precisa mais adivinhar o que fazer.</p>
+      </div>
     </div>
+    <p>Sou Marco Guimaraes Jr e atendo online com Tarot, Lenormand e Numerologia. Estudo essas práticas, e também a astrologia, desde os anos 90: primeiro para o meu próprio autoconhecimento e depois para ajudar pessoas e empresas que precisavam decidir algo importante: nas relações, no trabalho e nas decisões do negócio.</p>
+    <p>Sou um buscador, assim como você. Costumo dizer: "Vamos jogar uma luz sobre essa situação: eu acendo a lâmpada, mas quem caminha é você."</p>
+    <p class="cta-sobre"><a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20um%20atendimento." target="_blank" rel="noopener">Conversar pelo WhatsApp</a></p>
+    <details class="historia">
+      <summary>Minha história</summary>
+      <p>Estudo astrologia, numerologia e tarot desde meados da década de 90, para o meu autoconhecimento e a minha transformação interna. Por muitos anos foi essa a minha trajetória, uma trajetória interna.</p>
+      <p>Ao longo dos anos comecei a atender, primeiro presencialmente e depois online, pessoas conhecidas e próximas que precisavam de ajuda. Era um trabalho em segundo plano, por causa das intensas atividades profissionais e familiares.</p>
+      <p>Hoje publico este portal para compartilhar o que aprendi e vivi, e também a minha forma de ajudar quem está passando por momentos em que decisões importantes precisam ser tomadas.</p>
+      <!-- Desativado em 27/10/2026 (pode voltar):
+      <p>Começo sem perguntas, com um "raio-x" dos principais pontos. Falo um panorama de como você está e do que te trouxe até aqui, e muitas dúvidas se resolvem nesse momento. Depois abro para o que você quiser perguntar. Se o atendimento for por e-mail ou WhatsApp, leio as perguntas que você enviar. As cartas e os números contam uma história, e ela costuma explicar de onde vêm os bloqueios e as dúvidas.*</p>
+      -->
+    </details>
+    <p class="obs">Há coisas que não faço: previsão de morte, de gravidez ou de tratamento de doenças, que são assunto para profissionais de cada área. Nada aqui decide por você, nada está escrito em pedra e resultados mudam conforme você muda.</p>
   </div>
 </section>
 
@@ -256,8 +427,8 @@ footer p{max-width:none}
     <div class="intro"><h2>Como funciona</h2></div>
     <div class="passos">
       <div class="passo"><h3>Você escreve</h3><p>Chame no WhatsApp e conte o que busca. Indico o atendimento mais adequado.</p></div>
-      <div class="passo"><h3>Combinamos o horário</h3><p>Presencial ou por videochamada, em um horário que caiba na sua rotina.</p></div>
-      <div class="passo"><h3>Fazemos o atendimento</h3><p>Uma conversa sem pressa. Ao final, você recebe um resumo por escrito.</p></div>
+      <div class="passo"><h3>Combinamos</h3><p>Definimos o formato, o pagamento (Pix ou cartão) e, se for consulta, o horário.</p></div>
+      <div class="passo"><h3>Você recebe</h3><p>O seu mapa em PDF, a resposta às suas perguntas ou a consulta online, sem pressa.</p></div>
     </div>
   </div>
 </section>
@@ -273,8 +444,42 @@ footer p{max-width:none}
 
 <footer>
   <div class="wrap">
-    <p>© <span id="ano">2026</span> Gradarius</p>
-    <p>As práticas oferecidas têm caráter de autoconhecimento e não substituem tratamento médico ou psicológico.</p>
+    <div class="rodape">
+      <div>
+        <div class="marca">Gradar<span>ius</span></div>
+        <p class="marca-sub">Clareza vem por graus.</p>
+      </div>
+      <nav aria-label="Atendimento">
+        <h4>Atendimento</h4>
+        <ul>
+          <li><a href="https://wa.me/5541987362764" target="_blank" rel="noopener">WhatsApp (41) 98736-2764</a></li>
+          <li><a href="mailto:contato@nanolitika.com.br">contato@nanolitika.com.br</a></li>
+          <li><a href="#servicos">Tarot e Lenormand</a></li>
+          <li><a href="#mapa-numerologico">Mapa Numerológico</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Ferramentas gratuitas">
+        <h4>Ferramentas</h4>
+        <ul>
+          <li><a href="servicos/biorritmo/">Biorritmo</a></li>
+          <li><a href="servicos/tattwas/">Tattwas</a></li>
+          <li><a href="servicos/roda-ciclos/">Roda dos Ciclos</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="O site">
+        <h4>Conheça</h4>
+        <ul>
+          <li><a href="#sobre">Quem atende</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="privacidade/">Privacidade</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="rodape-fim">
+      <p>© <span id="ano">2026</span> Gradarius. Todos os direitos reservados.</p>
+      <p>As práticas oferecidas têm caráter de autoconhecimento e não substituem tratamento médico ou psicológico.</p>
+    </div>
   </div>
 </footer>
 
@@ -370,19 +575,38 @@ var cartas=[
 ["Rei de Ouros","♦","Abundância construída com paciência. Use o que você tem com sabedoria."]
 ];
 var el=document.getElementById('carta'),ult=-1;
+// imagens: decks/web/ (Smith-Waite 1909, domínio público; arcanos maiores com número na frente)
+function slug(n){return n.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'_').replace(/^_|_$/g,'')}
+function arq(i){return 'decks/web/'+(i<22?('0'+i).slice(-2)+'_':'')+slug(cartas[i][0])+'.jpg'}
 el.addEventListener('click',function(){
   if(el.classList.contains('virada')){
     el.classList.remove('virada');
-    document.getElementById('dica').textContent='Toque na carta para receber uma mensagem';
+    document.getElementById('l-nome').textContent='';document.getElementById('l-msg').textContent='';
+    document.getElementById('dica').textContent='Feche os olhos, veja a sua situação, visualize a sua pergunta e clique na carta.';
     return;
   }
   var i;do{i=Math.floor(Math.random()*cartas.length)}while(i===ult);ult=i;
   document.getElementById('c-nome').textContent=cartas[i][0];
   document.getElementById('c-simb').textContent=cartas[i][1];
   document.getElementById('c-msg').textContent=cartas[i][2];
+  document.getElementById('l-nome').textContent=cartas[i][0];
+  document.getElementById('l-msg').textContent=cartas[i][2];
+  var im=document.getElementById('c-img'),fr=document.getElementById('frente');
+  fr.classList.remove('com-img');im.hidden=true;
+  im.onload=function(){im.hidden=false;fr.classList.add('com-img')};
+  im.onerror=function(){im.hidden=true;fr.classList.remove('com-img')};
+  im.alt=cartas[i][0];im.src=arq(i);
   el.classList.add('virada');
   document.getElementById('dica').textContent='Toque de novo para devolver a carta ao baralho';
 });
+// "Tirar uma carta" (hero): rola até a carta e a vira; se já estiver virada, só rola
+document.querySelectorAll('.ir-carta').forEach(function(b){b.addEventListener('click',function(e){
+  e.preventDefault();
+  var calmo=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  el.scrollIntoView({behavior:calmo?'auto':'smooth',block:'center'});
+  el.focus({preventScroll:true});
+  if(!el.classList.contains('virada'))el.click();
+});});
 // tema
 var raiz=document.documentElement;
 try{var t=localStorage.getItem('tema');if(t)raiz.dataset.theme=t}catch(e){}

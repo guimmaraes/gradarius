@@ -15,6 +15,7 @@ window.TEXTOS = {
   formulario: {
     nascimento: 'Data de nascimento',
     nascimentoDica: 'dd/mm/aaaa',
+    ou: 'ou',
     calendario: 'ou escolha no calendário',
     nome: 'Seu nome (opcional, só aparece na imagem)',
     referencia: 'Ver outro dia (opcional)',

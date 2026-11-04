@@ -1,0 +1,22 @@
+{
+  "perfil": [
+    "Alma que merece descanso. Depois de muita dor em vidas passadas, recebe nesta uma bênção: alegria, paz e o prazer das coisas belas. O destino da próxima vida depende de como usar essa bênção. Quem a desperdiça, a perde.",
+    "Voz agradável, humor leve, gosto por música, canto e diversão. Repele o sórdido e o enganoso. Honra e virtude são impulsos naturais. Briga pouco e evita excessos. Costuma ter ar delicado, artístico, saúde pouco robusta.",
+    "Sensível. Assusta-se e se irrita fácil. Precisa de simpatia e de ambiente calmo, sobretudo na infância. A pressão da guerra, do mercado ou da vida bruta pode destruir seus melhores dons e adoecer o corpo cedo. São os fazedores de alegria do mundo."
+  ],
+  "vocacao": [
+    "Música, artes plásticas, escultura, teatro, design e ensino dessas áreas. Os homens também vão bem como joalheiros ou comerciantes de sedas, bordados, perfumes, obras de arte, gravuras e objetos de adorno e decoração. O que os atrai é estar entre coisas finas.",
+    "Evite empurrá-los para mecânica, máquinas pesadas ou trabalho bruto."
+  ],
+  "saude": [
+    "Pontos fracos: nervos (excesso de estudo ou ambiente ruim), problemas ligados a uma moral rígida demais, que pode levar a evitar o casamento e enfraquecer o corpo, e o baixo-ventre (bexiga, rins, intestinos)."
+  ],
+  "afinidades": [
+    "Sente alegria na Arábia, em partes da Áustria (Viena), no litoral do Mediterrâneo, na Inglaterra e na Nova Inglaterra (EUA)."
+  ],
+  "polaridades": {
+    "A": "Mais séria. Quer ensinar e espalhar suas ideias de beleza e ética. Liga-se a reformas e educação. Vira crítico de teatro, arte e música, jurado ou leitor de originais. Enxerga falhas onde ninguém vê. É melhor analista do que criador.",
+    "B": "Muito autocrítica. Raramente critica os outros, mas se julga sem parar, age por impulso e depois se questiona. Tipo aquariano, ama sebos, museus e pesquisas. Ótimo conversador e amigo, inventa histórias e daria bom dramaturgo ou roteirista. Vive à sua maneira, parece boêmio ou excêntrico, mas é muito querido e encontra bons parceiros."
+  },
+  "fonte": "Inspirado em H. Spencer Lewis, Self Mastery and Fate with the Cycles of Life (AMORC, copyright 1929). Texto de referência: https://archive.org/stream/selfmasteryfatew00lewi/selfmasteryfatew00lewi_djvu.txt"
+}

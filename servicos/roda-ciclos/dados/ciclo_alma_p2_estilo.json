@@ -1,0 +1,23 @@
+{
+  "perfil": [
+    "Espírito inquieto e andarilho. Vive melhor em movimento. Ficar muito tempo no mesmo lugar, na mesma rotina ou no mesmo hobby vira monotonia, e a vontade de mudar volta, mesmo quando a pessoa tenta se fixar.",
+    "Tem gosto refinado, sensibilidade e boas maneiras. Quer ser bem recebida e bem vista. Gosta de novidades e de prazeres leves e saudáveis, mas também sente atração por ciência e coisas práticas. Dessa mistura nasce um caráter de duas faces.",
+    "É econômica e prudente, porém vive o agora e confia que o futuro será justo. Foge de brigas e discussões, busca paz e gosta de meditar. Parece inconstante a quem olha de fora, mas o que busca mesmo é experiência nova.",
+    "É honesta, cuidadosa e correta. O risco está nas más companhias: quem se entrega aos prazeres da carne pode cair na bebida, no desleixo e na miséria. Por mudar tanto, costuma ser mal julgada."
+  ],
+  "vocacao": [
+    "Funciona bem onde há deslocamento e contato variado: representação comercial viajante, empresas com várias filiais, vendas. Também se dá bem como secretário(a), projetista, artista, ator, músico de concerto, repórter ou profissional de serviço em casas elegantes.",
+    "No casamento, tende a buscar quem lhe dê título ou posição. Muitas mulheres são tratadas como rainhas pelo marido. Muitos homens se casam com mulheres de posses, que os tratam como reis do lar."
+  ],
+  "saude": [
+    "Pontos fracos: bexiga, reumatismo, resfriados e tosses. O resfriado costuma aparecer no estômago, nos pés ou nos olhos."
+  ],
+  "afinidades": [
+    "Sente-se em casa na Noruega, na Dinamarca, nos Países Baixos e na Bélgica."
+  ],
+  "polaridades": {
+    "A": "Mente veloz, língua rápida, mãos ágeis. Prefere trabalhos que usem o cérebro e os dedos ao esforço físico. Costuma ter duas ocupações ou dois interesses ao mesmo tempo e deve cultivar o intelecto. É vista como bem-formada, mesmo sem escola.",
+    "B": "Brilha no mundo das ideias: ensino, artes finas, direito. O talento é discreto e aparece na memória, no gosto pela linguagem e na intuição que antecipa fatos. Muda de casa de vez em quando, mas oscila mais nas leituras e estudos. É a melhor das polaridades para secretário ou sócio."
+  },
+  "fonte": "Inspirado em H. Spencer Lewis, Self Mastery and Fate with the Cycles of Life (AMORC, copyright 1929). Texto de referência: https://archive.org/stream/selfmasteryfatew00lewi/selfmasteryfatew00lewi_djvu.txt"
+}

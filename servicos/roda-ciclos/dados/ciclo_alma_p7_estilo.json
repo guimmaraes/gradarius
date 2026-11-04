@@ -1,0 +1,23 @@
+{
+  "perfil": [
+    "Alma antiga. Desde criança parece mais velha que a idade. Já viveu muito, lembra muito do que aprendeu e organiza o saber com facilidade. Veio para viver e ensinar o lado sério da vida, pelo exemplo ou pela instrução.",
+    "Imaginação profunda, quase profética, tanto para o passado remoto quanto para o futuro. Argumenta com lógica e expõe as ideias de modo sistemático. Fala pouco, é digna e reservada, e age como se estivesse sempre sob observação.",
+    "Julga com rigor e sem sentimentalismo: a lei é a lei. Por ser justa, costuma ser respeitada. Crê que o essencial se conquista com estudo e acumulação paciente. É organizada, honesta, exata, nem avarenta nem pródiga.",
+    "Atenção: pode se acomodar em ofícios protegidos por sindicatos ou regras fixas, por medo de arriscar, e assim travar o próprio progresso. Também atrai a vida reclusa de monges e freiras."
+  ],
+  "vocacao": [
+    "Seu ideal: magistratura, direção de grandes empresas e corporações. Se soubesse disso cedo, estudaria para esses cargos.",
+    "Na prática, vê-se em encanamento, alvenaria, reboco, construção, jardinagem, tinturaria e tipografia, por falta de orientação."
+  ],
+  "saude": [
+    "Pontos fracos: ouvidos, dentes, olhos, fala e problemas pós-resfriado (tuberculose, pneumonia). A constituição é ótima: vive muito, adoece só na velhice (icterícia, hidropisia, às vezes paralisia ou apoplexia)."
+  ],
+  "afinidades": [
+    "Sente alegria na Turquia, nos Balcãs, na Espanha, em partes da África e na América do Sul."
+  ],
+  "polaridades": {
+    "A": "Muito séria. Dedica-se a um ou dois assuntos, como química, criminologia, arqueologia, geologia e pesquisa histórica. Veste-se com discrição, parece mais velha, é reservada, devota e constante, e muitas vezes fica no mesmo emprego a vida toda. É o sal da terra, amiga profunda de quem a conhece. Quer reformar o mundo e começa por si.",
+    "B": "Menos sisuda. Alterna estudo com prazer. Atraída por misticismo e ocultismo, costuma ter mais fortuna e fama. Tem vida dupla: pública e sorridente, privada e reservada. Magnetismo forte, intuição aguçada para os pensamentos alheios. Gosta de água e de viajar para estudar povos e história."
+  },
+  "fonte": "Inspirado em H. Spencer Lewis, Self Mastery and Fate with the Cycles of Life (AMORC, copyright 1929). Texto de referência: https://archive.org/stream/selfmasteryfatew00lewi/selfmasteryfatew00lewi_djvu.txt"
+}

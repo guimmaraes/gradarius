@@ -1,0 +1,23 @@
+{
+  "perfil": [
+    "Intelecto de primeira linha. Estuda com facilidade, fala e escreve bem, tem boa memória e raciocina com lógica. Traz de vidas passadas a vocação de ensinar, criar e cuidar do bem comum.",
+    "Difícil de conhecer. Adapta-se a qualquer ambiente e conversa com todos no nível deles. Pode estar num posto humilde e ser, por dentro, muito mais preparada. Pode também estar no topo do mundo literário ou à frente de uma escola, pensando mais na humanidade do que em si.",
+    "Gosta de pesquisar e de mistérios, reais ou de ficção. Dá valor à palavra, ao direito e à ciência. Atrai-se pelo oculto e pelas tradições secretas, pela filosofia e pela religião, mas sem fanatismo: o ideal é a fraternidade universal.",
+    "Traz um passado de iniciação espiritual, em geral ligado às ordens secretas, e só se acalma ao retomar esse caminho. Convém levá-la cedo a um curso de desenvolvimento interior. Suas marcas: honra, moderação, idealismo místico e imaginação rica."
+  ],
+  "vocacao": [
+    "Negócios e comércio: lê as pessoas e entende o que querem. Vai bem como vendedor, treinador de equipes de venda e redator publicitário. Argumenta bem, o que abre portas, inclusive na política, embora um trabalho humanitário lhe convenha mais.",
+    "Também aparece como escritor, poeta, matemático, secretário, escultor, orador, professor, banqueiro, clérigo ou embaixador."
+  ],
+  "saude": [
+    "Pontos fracos: tonturas, cansaço mental, gagueira leve (o pensamento corre mais que a fala), rouquidão, tosse seca e resfriado de cabeça."
+  ],
+  "afinidades": [
+    "Sente alegria em Flandres, no Egito, na Índia e, mais que todos, no sul da França."
+  ],
+  "polaridades": {
+    "A": "Luz do meio educacional e intelectual. Há mais mulheres, que ensinam música e artes ou fazem trabalhos manuais finos. Os homens pendem para o espiritual e dariam bons mestres de ética, se livres de seitas. Gente jovial, polida e culta, com caráter forte e magnetismo, apta à medicina e à magistratura. Na infância, requer cuidado: a imaginação pode levar a mentiras, à inquietação e ao excesso de estudo, que cansa o sistema nervoso.",
+    "B": "Mente equilibrada que decide com lógica e busca igualdade em tudo. Gosta do belo, do luxo e do conforto, apoia as artes e escreve contos leves com fundo moral. Raramente se altera e leva serenidade aos outros. Combina com funções de mediar e de orientar crianças e jovens para a paz e a harmonia."
+  },
+  "fonte": "Inspirado em H. Spencer Lewis, Self Mastery and Fate with the Cycles of Life (AMORC, copyright 1929). Texto de referência: https://archive.org/stream/selfmasteryfatew00lewi/selfmasteryfatew00lewi_djvu.txt"
+}

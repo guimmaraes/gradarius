@@ -79,6 +79,7 @@
     $('l-nasc').textContent = T.formulario.nascimento;
     $('nasc').placeholder = T.formulario.nascimentoDica;
     $('nasc-cal').setAttribute('aria-label', T.formulario.calendario);
+    $('t-ou').textContent = T.formulario.ou;
     $('l-nome').textContent = T.formulario.nome;
     $('l-ref-resumo').textContent = T.formulario.referencia;
     $('l-ref').textContent = T.formulario.referenciaDica;

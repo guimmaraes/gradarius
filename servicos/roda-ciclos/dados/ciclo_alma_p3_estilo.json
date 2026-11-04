@@ -1,0 +1,22 @@
+{
+  "perfil": [
+    "Alma de lutador. Chega com a experiência de grandes batalhas vencidas pela força de vontade e pelo domínio de si. Corpo robusto, temperamento ardente e impetuoso, capacidade de render muito sob pressão, desde que haja motivo e algum incentivo.",
+    "Obstáculo é combustível. Quanto mais dizem que algo é impossível, mais se anima. Adora competir e disputar honrarias, não pela vaidade, mas pela maestria que a vitória confirma.",
+    "Ponto fraco: tende a se gabar. Em compensação, não hesita em arriscar a vida, o corpo e os próprios interesses por aquilo que acredita ser sua tarefa. Bem treinada, torna-se líder de causas que exigem vontade, firmeza e princípios."
+  ],
+  "vocacao": [
+    "Escolhendo livremente: oficial do exército ou líder de grandes movimentos. Em carreiras mais calmas: cirurgia, química, carpintaria e construção.",
+    "Tem prazer em fazer peças pequenas, intrincadas e mecânicas. Por isso inventa bem: relojoaria, projetos elétricos, pequenos dispositivos de alto valor."
+  ],
+  "saude": [
+    "Atenção ao sangue e à pele (furúnculos, impingem, eczema, feridas), à icterícia, aos cálculos biliares e às febres altas. A dieta pede cuidado: tende a comer muito tempero e carne."
+  ],
+  "afinidades": [
+    "Atração por Lombardia, Baviera, norte da França e Paris, lugares que lhe parecem familiares."
+  ],
+  "polaridades": {
+    "A": "Aventureira. Viaja e se arrisca atrás de feitos perigosos; é exploradora e investigadora nata. Sem poder viajar, explora o próprio país. Dá bom chefe militar, naval ou político e reformador, pois ama conquistar. Costuma ter duas frentes de atuação ao mesmo tempo.",
+    "B": "Nascida para presidir. Chega ao topo de uma grande organização, em cargos como governador, prefeito, juiz ou presidente. Gosta de pompa, holofote e aplauso, e por isso vigia as próprias fraquezas para não perder a posição. Em qualquer área é liderança; o medíocre não a satisfaz. Crianças desta polaridade merecem educação completa."
+  },
+  "fonte": "Inspirado em H. Spencer Lewis, Self Mastery and Fate with the Cycles of Life (AMORC, copyright 1929). Texto de referência: https://archive.org/stream/selfmasteryfatew00lewi/selfmasteryfatew00lewi_djvu.txt"
+}

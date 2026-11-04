@@ -1,0 +1,6 @@
+/* Fontes hospedadas no próprio site (OFL): evita enviar o IP do visitante ao Google. */
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(cormorant-garamond-latin-500-normal.ttf) format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(cormorant-garamond-latin-600-normal.ttf) format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(cormorant-garamond-latin-500-italic.ttf) format('truetype')}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:400 500;font-display:swap;src:url(figtree-latin-400-normal.ttf) format('truetype')}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:600;font-display:swap;src:url(figtree-latin-600-normal.ttf) format('truetype')}

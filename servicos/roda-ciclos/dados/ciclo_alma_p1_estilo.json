@@ -1,0 +1,22 @@
+{
+  "perfil": [
+    "Alma de ambição elevada. Quer ser admirada, não apenas rica. O prestígio e a estima pública valem mais do que o conforto material.",
+    "Tem horror ao que é vulgar ou mesquinho e sofre quando a vida a prende a ambientes baixos. Essa insatisfação a empurra para cima. É honesta por convicção prática: já aprendeu que o jogo sujo cobra um preço. Sua palavra vale como contrato.",
+    "Nasceu para conduzir. Assume o comando com naturalidade, fala e escreve com cuidado e tem presença forte. É cordial com os iguais, mas perde a paciência com quem não quer evoluir."
+  ],
+  "vocacao": [
+    "Direção, gestão e fiscalização. Cargos públicos de alto nível, magistratura e carreira jurídica. Em escala menor, autoridade local ou função executiva.",
+    "Pelo lado criativo, a afinidade é com o metal trabalhado como obra de design, a arquitetura, a decoração e o figurino."
+  ],
+  "saude": [
+    "Pontos sensíveis: coração, sistema nervoso (a mente trabalha demais), visão e tendência a febres."
+  ],
+  "afinidades": [
+    "O que é solene, distinto e honroso a atrai. Sente familiaridade ao visitar Oriente Médio antigo (Caldeia, Fenícia), Itália, Sicília, Suíça e Escócia."
+  ],
+  "polaridades": {
+    "A": "Impõe-se pela ação. Vai à frente, comanda e vence pela energia. Corpo forte, voz firme, escrita contundente.",
+    "B": "Impõe-se pela elegância. Prefere as artes (música, teatro, artes visuais) e avança com suavidade, mas não cede: a teimosia é sua marca."
+  },
+  "fonte": "Inspirado em H. Spencer Lewis, Self Mastery and Fate with the Cycles of Life (AMORC, copyright 1929). Texto de referência: https://archive.org/stream/selfmasteryfatew00lewi/selfmasteryfatew00lewi_djvu.txt"
+}
