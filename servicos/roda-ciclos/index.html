@@ -76,6 +76,8 @@ header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper
 .chip{border:1px solid rgba(184,147,74,.6);border-radius:999px;padding:.35rem 1rem;font-size:.95rem;color:#f3f1fb}
 .chip b{font-weight:600;color:#e6cf9a}
 .legenda{color:#b9b5da;font-size:.9rem;padding-bottom:2rem;margin:0 auto}
+.legenda p{margin:0 auto .45rem;max-width:none}
+.legenda strong{color:#f3f1fb;font-weight:600}
 
 main section{padding:3.5rem 0}
 main section.alt{background:var(--moon)}
@@ -152,7 +154,7 @@ footer .ornamento{color:var(--brass);font-size:1.2rem}
     <p class="quem" id="quem" style="margin-inline:auto"></p>
     <svg id="roda" class="roda" viewBox="0 -34 600 634" role="img"></svg>
     <div class="chips" id="chips"></div>
-    <p class="legenda" id="legenda" style="margin-inline:auto"></p>
+    <div class="legenda" id="legenda" style="margin-inline:auto"></div>
     <button class="alterar" id="alterar" type="button" hidden>← Alterar as datas</button>
     </div>
   </div></div>
@@ -229,11 +231,15 @@ function tracos(svg,cx,cy,r1,lista,rotulos){
   });
 }
 function ponteiro(svg,cx,cy,r0,r1,pos){
-  const a = pos*360, [x0,y0]=pol(cx,cy,r1-15,a), [x1,y1]=pol(cx,cy,r1+8,a);
-  svg.appendChild(s('line',{x1:x0,y1:y0,x2:x1,y2:y1,stroke:'#15132b','stroke-width':7,'stroke-linecap':'round'}));
-  svg.appendChild(s('line',{x1:x0,y1:y0,x2:x1,y2:y1,stroke:VERMELHO,'stroke-width':3.4,'stroke-linecap':'round'}));
-  svg.appendChild(s('circle',{cx:x1,cy:y1,r:4.2,class:'pulso'}));
-  svg.appendChild(s('circle',{cx:x1,cy:y1,r:4.2,fill:VERMELHO,stroke:'#15132b','stroke-width':1.6}));
+  /* flecha apontando para dentro: cauda fora do anel, ponta dentro do arco */
+  const a = pos*360, rad = a*Math.PI/180, tx = Math.cos(rad), ty = Math.sin(rad);
+  const [x0,y0]=pol(cx,cy,r1+9,a), [xb,yb]=pol(cx,cy,r1-4,a), [xp,yp]=pol(cx,cy,r1-17,a), L = 6.5;
+  const cabeca = `${xp},${yp} ${xb+tx*L},${yb+ty*L} ${xb-tx*L},${yb-ty*L}`;
+  svg.appendChild(s('circle',{cx:xp,cy:yp,r:4.2,class:'pulso'}));
+  svg.appendChild(s('line',{x1:x0,y1:y0,x2:xb,y2:yb,stroke:'#15132b','stroke-width':7,'stroke-linecap':'round'}));
+  svg.appendChild(s('polygon',{points:cabeca,fill:VERMELHO,stroke:'#15132b','stroke-width':3.2,'stroke-linejoin':'round'}));
+  svg.appendChild(s('line',{x1:x0,y1:y0,x2:xb,y2:yb,stroke:VERMELHO,'stroke-width':3.4,'stroke-linecap':'round'}));
+  svg.appendChild(s('polygon',{points:cabeca,fill:VERMELHO}));
 }
 /* passo: a cada N unidades dentro de cada segmento (dias); marcas: 'dia' = relógio de 24h por hora */
 function anel(svg, cx, cy, r0, r1, segs, pos, ativo, rotulo, titulo, passo, horas){
@@ -261,20 +267,20 @@ function anel(svg, cx, cy, r0, r1, segs, pos, ativo, rotulo, titulo, passo, hora
 function roda(){
   const svg = $('roda'), cx=300, cy=300;
   svg.setAttribute('aria-label',
-    `Roda dos ciclos: anel externo, Ciclo Anual, período ${D.anual.periodo}; anel do meio, Ciclo da Alma, período ${D.alma.periodo} polaridade ${D.alma.polaridade}; anel interno, relógio do dia, letra ${D.diario.letra}.`);
+    `Roda dos ciclos: anel externo, Ciclo da Alma, período ${D.alma.periodo} polaridade ${D.alma.polaridade}; anel do meio, Ciclo Anual, período ${D.anual.periodo}; anel interno, relógio do dia, letra ${D.diario.letra}.`);
   svg.appendChild(s('path',{d:'M296,-2 L304,-2 L300,6 Z',fill:'#b8934a'}));
-  svg.appendChild(s('text',{x:cx,y:-12,'text-anchor':'middle','font-size':11.5,class:'centro-s'},`no topo começam: anual ${dm(D.anual.ciclo_inicio)} · alma 22/03 · dia 00h`));
+  svg.appendChild(s('text',{x:cx,y:-12,'text-anchor':'middle','font-size':11.5,class:'centro-s'},`no topo começam: alma 22/03 · anual ${dm(D.anual.ciclo_inicio)} · dia 00h`));
   svg.appendChild(s('circle',{cx,cy,r:288,fill:'none',stroke:'#b8934a','stroke-width':1,opacity:.55}));
   svg.appendChild(s('circle',{cx,cy,r:282,fill:'none',stroke:'#b8934a','stroke-width':.5,opacity:.35}));
-  // externo: anual
+  // meio: anual
   const A = D.anual;
-  anel(svg,cx,cy,222,268, A.calendario.map(p=>({peso:p.dias,cor:COR[p.periodo-1],p})),
+  anel(svg,cx,cy,166,210, A.calendario.map(p=>({peso:p.dias,cor:COR[p.periodo-1],p})),
        (A.dia_do_ciclo-.5)/A.calendario.reduce((t,p)=>t+p.dias,0), A.periodo-1,
        sg=>String(sg.p.periodo), sg=>[`Ciclo Anual · Período ${sg.p.periodo}`,`${sg.p.titulo} · ${dm(sg.p.inicio)} a ${dm(sg.p.fim)} · ${sg.p.dias} dias`], 5);
-  // meio: alma
+  // externo: alma
   const L = D.alma;
   const iAl = L.calendario.findIndex(x=>x.periodo===L.periodo && x.polaridade===L.polaridade);
-  anel(svg,cx,cy,166,210, L.calendario.map(x=>({peso:x.dias,cor:COR[x.periodo-1],x})),
+  anel(svg,cx,cy,222,268, L.calendario.map(x=>({peso:x.dias,cor:COR[x.periodo-1],x})),
        (L.dia_do_ciclo-.5)/L.dias_do_ciclo, iAl,
        sg=>sg.x.periodo+sg.x.polaridade, sg=>[`Ciclo da Alma · ${sg.x.periodo}${sg.x.polaridade}`,`Período ${sg.x.periodo}, polaridade ${sg.x.polaridade} · ${sg.x.inicio} a ${sg.x.fim} · ${sg.x.dias} dias`], 5);
   // interno: dia
@@ -365,7 +371,12 @@ function montar(dados){
   const chips = $('chips');
   [['Ano',`Período ${D.anual.periodo}`],['Alma',`${D.alma.periodo}${D.alma.polaridade}`],['Dia',`Letra ${D.diario.letra}`]]
     .forEach(([k,v])=>chips.appendChild(h('span',{class:'chip'},[k+': ',h('b',{},v)])));
-  $('legenda').textContent = 'Anel externo: ciclo anual (de aniversário a aniversário) · anel do meio: ciclo da alma (ano solar, 14 fases) · anel interno: relógio do dia (7 períodos, A a G). A agulha vermelha marca onde você está. Os traços marcam a cada 5 dias (anual e alma) e a cada hora (relógio do dia).';
+  const lg = $('legenda'); lg.textContent = '';
+  [[['O anel exterior é o ',['strong','Ciclo da Alma'],`: mostra o Período ${D.alma.periodo} e a Polaridade ${D.alma.polaridade} do seu nascimento (1A é Período 1, Polaridade A).`]],
+   [['O anel central é o ',['strong','Ciclo Anual'],': o período em que você está agora, de aniversário a aniversário.']],
+   [['O anel interior é o ',['strong','Ciclo Diário'],': diz em que período exato do dia você está neste momento.']],
+   [['A ',['strong','agulha vermelha'],' marca onde você está. Passe o mouse (ou toque) sobre os anéis para ver os detalhes.']]
+  ].forEach(([partes]) => lg.appendChild(h('p',{},partes.map(x => Array.isArray(x) ? h(x[0],{},x[1]) : x))));
 
   $('agora').appendChild(cartaoDia());
   $('ano').appendChild(ciclo7('☉','Ciclo Anual',D.anual));
