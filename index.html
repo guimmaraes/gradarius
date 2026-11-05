@@ -35,9 +35,9 @@
   --serif:'Cormorant Garamond',Georgia,serif; --sans:'Figtree',system-ui,sans-serif;
 }
 @media(prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--paper:#15132b;--moon:#1c1a38;--text:#ebe9f7;--muted:#a9a6c6;--line:#34315a;--card:#211f42}
+  :root:not([data-theme="light"]){--paper:#15132b;--moon:#1c1a38;--text:#ebe9f7;--muted:#a9a6c6;--line:#34315a;--card:#211f42;--fundo-op:.2;--sec:rgba(21,19,43,.55);--sec-alt:rgba(28,26,56,.35);--hero-bg:rgba(30,27,58,.35)}
 }
-:root[data-theme="dark"]{--paper:#15132b;--moon:#1c1a38;--text:#ebe9f7;--muted:#a9a6c6;--line:#34315a;--card:#211f42}
+:root[data-theme="dark"]{--paper:#15132b;--moon:#1c1a38;--text:#ebe9f7;--muted:#a9a6c6;--line:#34315a;--card:#211f42;--fundo-op:.2;--sec:rgba(21,19,43,.55);--sec-alt:rgba(28,26,56,.35);--hero-bg:rgba(30,27,58,.35)}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--paper);color:var(--text);line-height:1.65;font-size:1.0625rem}
@@ -65,7 +65,7 @@ nav a:hover{color:var(--text)}
 .btn.ghost:hover{background:rgba(255,255,255,.1)}
 
 /* hero */
-.hero{background:radial-gradient(1200px 500px at 85% 0%,#3a3478 0%,transparent 60%),var(--ink);color:#f3f1fb;padding:5rem 0 6rem;overflow:hidden}
+.hero{background:radial-gradient(1200px 500px at 85% 0%,#3a3478 0%,transparent 60%),var(--hero-bg,var(--ink));color:#f3f1fb;padding:5rem 0 6rem;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
 .hero .marca{display:block;width:min(100%,440px);height:auto;margin:0 0 2rem}
 .hero h1{font-size:clamp(2.7rem,6vw,4.6rem);margin-bottom:1.3rem}
@@ -102,6 +102,10 @@ nav a:hover{color:var(--text)}
 /* secoes */
 section{padding:5.5rem 0}
 .alt{background:var(--moon)}
+/* fundo fixo de cartas (so no tema escuro) */
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:url(fundo-cartas.webp) center/cover no-repeat;opacity:var(--fundo-op,0);pointer-events:none}
+main section{background:var(--sec,transparent)}
+main section.alt{background:var(--sec-alt,var(--moon))}
 .intro{margin-bottom:3rem}
 .intro p{color:var(--muted)}
 
