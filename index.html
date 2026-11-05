@@ -19,7 +19,8 @@
 <link rel="canonical" href="https://www.gradarius.com.br/">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "Gradarius", "url": "https://www.gradarius.com.br/", "inLanguage": "pt-BR"}, {"@type": "ProfessionalService", "name": "Gradarius", "url": "https://www.gradarius.com.br/", "description": "Tarot, Lenormand, Numerologia e astrologia para decidir com mais clareza. Atendimento online.", "founder": {"@type": "Person", "name": "Marco Guimaraes Jr"}, "email": "contato@gradarius.com.br", "telephone": "+55 41 98736-2764", "areaServed": "BR", "availableLanguage": "pt-BR", "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mapa Numerológico (arquivos)"}, "price": "190.00", "priceCurrency": "BRL"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mapa Numerológico + 1 hora de conversa online"}, "price": "300.00", "priceCurrency": "BRL"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tarot e Lenormand pelo WhatsApp"}, "price": "190.00", "priceCurrency": "BRL"}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Consulta online de 1 hora (Tarot e Lenormand)"}, "price": "300.00", "priceCurrency": "BRL"}]}]}</script>
 <meta name="theme-color" content="#1e1b3a">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="fontes/cormorant-garamond-latin-600-normal.ttf" as="font" type="font/ttf" crossorigin>
 <style>
 @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(fontes/cormorant-garamond-latin-500-normal.ttf) format('truetype')}
@@ -66,6 +67,7 @@ nav a:hover{color:var(--text)}
 /* hero */
 .hero{background:radial-gradient(1200px 500px at 85% 0%,#3a3478 0%,transparent 60%),var(--ink);color:#f3f1fb;padding:5rem 0 6rem;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero .marca{display:block;width:min(100%,440px);height:auto;margin:0 0 2rem}
 .hero h1{font-size:clamp(2.7rem,6vw,4.6rem);margin-bottom:1.3rem}
 .hero h1 em{font-style:italic;color:var(--rose)}
 .hero p{color:#cfcbe8;font-size:1.15rem;margin-bottom:2rem}
@@ -230,6 +232,7 @@ footer p{max-width:none}
 <div class="hero">
   <div class="wrap">
     <div>
+      <img class="marca" src="logo-gradarius.svg" alt="Gradarius Holística" width="440" height="141">
       <h1>Você não precisa mais <em>adivinhar</em> o que fazer.</h1>
       <p class="sub1">Clareza, um grau de cada vez. Comece pelo primeiro: tire uma carta.</p>
       <p class="leve">Tarot e oráculos, mapa astral, Mapa Numerológico e florais, em atendimentos individuais e online.</p>
@@ -400,25 +403,29 @@ footer p{max-width:none}
 <section id="sobre">
   <div class="wrap sobre">
     <div class="sobre-topo">
-      <img class="retrato" src="foto.jpeg" alt="Retrato de Marco Guimaraes Jr" width="96" height="96">
+      <!-- imagem oculta (teste): <img class="retrato" src="foto.jpeg" alt="Retrato de Marco Guimaraes Jr" width="96" height="96"> -->
       <div>
         <h2>Quem atende</h2>
-        <p class="lema">Você não precisa mais adivinhar o que fazer.</p>
+        <!-- lema oculto (teste): <p class="lema">Você não precisa mais adivinhar o que fazer.</p> -->
       </div>
     </div>
+    <!-- texto oculto (teste):
     <p>Sou Marco Guimaraes Jr e atendo online com Tarot, Lenormand e Numerologia. Estudo essas práticas, e também a astrologia, desde os anos 90: primeiro para o meu próprio autoconhecimento e depois para ajudar pessoas e empresas que precisavam decidir algo importante: nas relações, no trabalho e nas decisões do negócio.</p>
     <p>Sou um buscador, assim como você. Vamos jogar uma luz sobre essa situação: eu acendo a lâmpada, mas quem caminha é você.</p>
-    <p class="cta-sobre"><a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20um%20atendimento." target="_blank" rel="noopener">Conversar pelo WhatsApp</a></p>
+    -->
+    <!-- botão oculto (teste): <p class="cta-sobre"><a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20um%20atendimento." target="_blank" rel="noopener">Conversar pelo WhatsApp</a></p> -->
+    <!-- Minha história oculta (teste):
     <details class="historia">
       <summary>Minha história</summary>
       <p>Por muito tempo, astrologia, numerologia e Tarot foram ferramentas que me ajudaram no caminho para dentro. Estudei para me conhecer e me transformar, antes de pensar em atender alguém. Foi uma trajetória silenciosa e interna, e foi ela que me trouxe até aqui.</p>
       <p>Ao longo dos anos comecei a atender, primeiro presencialmente e depois online, pessoas conhecidas e próximas que precisavam de ajuda, mas era uma atividade em segundo plano.</p>
       <p>Hoje publico este portal para compartilhar o que aprendi e vivi, e também a minha forma de ajudar quem está passando por momentos em que decisões importantes precisam ser tomadas.</p>
+    -->
       <!-- Desativado em 27/10/2026 (pode voltar):
       <p>Começo sem perguntas, com um "raio-x" dos principais pontos. Falo um panorama de como você está e do que te trouxe até aqui, e muitas dúvidas se resolvem nesse momento. Depois abro para o que você quiser perguntar. Se o atendimento for por e-mail ou WhatsApp, leio as perguntas que você enviar. As cartas e os números contam uma história, e ela costuma explicar de onde vêm os bloqueios e as dúvidas.*</p>
       -->
-    </details>
-    <p class="obs">Há coisas que não faço: previsão de morte, de gravidez ou de tratamento de doenças, que são assunto para profissionais de cada área. Nada aqui decide por você, nada está escrito em pedra e resultados mudam conforme você muda.</p>
+    <!-- fim de Minha história (oculta, teste): </details> -->
+    <!-- observação oculta (teste): <p class="obs">Há coisas que não faço: previsão de morte, de gravidez ou de tratamento de doenças, que são assunto para profissionais de cada área. Nada aqui decide por você, nada está escrito em pedra e resultados mudam conforme você muda.</p> -->
   </div>
 </section>
 
