@@ -162,6 +162,20 @@ main section.alt{background:var(--sec-alt,var(--moon))}
 .opcao .preco{color:var(--text);font-weight:600}
 .selo{position:absolute;top:-.7rem;right:1.2rem;background:var(--brass);color:#1b1630;font-size:.8rem;font-weight:600;padding:.1rem .8rem;border-radius:999px}
 @media(max-width:860px){.mapa{grid-template-columns:1fr}}
+.amostra{margin-top:3.5rem;text-align:center}
+.amostra h3{font-family:var(--serif);font-size:1.7rem;margin-bottom:.3rem}
+.amostra .am-leg{color:var(--muted);margin-bottom:1.6rem}
+.paginas{display:flex;gap:1.2rem;justify-content:center;overflow-x:auto;scroll-snap-type:x mandatory;padding:.4rem .2rem 1rem}
+.paginas button{flex:0 0 min(31%,300px);scroll-snap-align:center;background:none;border:0;padding:0;cursor:zoom-in}
+.paginas img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s}
+.paginas button:hover img{transform:translateY(-3px)}
+.secoes{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:1.2rem 0 0}
+.secoes li{border:1px solid var(--brass);color:var(--brass);border-radius:999px;padding:.2rem .9rem;font-size:.92rem}
+.secoes li.mais{border-style:dashed;color:var(--muted);border-color:var(--line)}
+dialog.zoom{border:0;background:transparent;padding:0;max-width:min(92vw,820px);max-height:94vh}
+dialog.zoom::backdrop{background:rgba(10,8,25,.85)}
+dialog.zoom img{width:100%;height:auto;max-height:94vh;object-fit:contain;border-radius:10px;cursor:zoom-out}
+@media(max-width:760px){.paginas button{flex-basis:78%}}
 .opcoes.duas{grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:3rem}
 .opcoes.duas .opcao{padding:1.6rem}
 .opcoes.duas .btn{margin-top:1.1rem}
@@ -374,6 +388,27 @@ footer p{max-width:none}
       <a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20meu%20Mapa%20Numerol%C3%B3gico." target="_blank" rel="noopener">Quero meu mapa</a>
     </div>
   </div>
+  <div class="wrap amostra">
+    <h3>Veja um mapa de verdade</h3>
+    <p class="am-leg">Mapa de Percy Harrison Fawcett (nascido em 1867): capa, resumo e o Coração do Mapa. Clique para ampliar.</p>
+    <div class="paginas">
+      <button type="button" aria-label="Ampliar a capa do mapa"><img src="amostra/mapa-1.webp" alt="Capa do Mapa Numerológico de Percy Harrison Fawcett" width="1000" height="1414" loading="lazy"></button>
+      <button type="button" aria-label="Ampliar o resumo do mapa"><img src="amostra/mapa-2.webp" alt="Resumo do mapa: os cinco pontos e o índice de seções" width="1000" height="1414" loading="lazy"></button>
+      <button type="button" aria-label="Ampliar o Coração do Mapa"><img src="amostra/mapa-3.webp" alt="O Coração do Mapa: triângulo com os cinco números" width="1000" height="1414" loading="lazy"></button>
+    </div>
+    <p class="am-leg" style="margin:1.4rem 0 0">No mapa completo você encontra, entre outras seções:</p>
+    <ul class="secoes">
+      <li>O Coração do Mapa</li><li>Números que se repetem</li><li>Como você reage à vida</li><li>Como você sente</li>
+      <li>Pontos de atenção</li><li>Como você se comunica</li><li>Primeiros 28 anos e a família</li><li>Realizações</li>
+      <li>Afeto e filhos</li><li class="mais">e mais</li>
+    </ul>
+    <dialog class="zoom" id="zoom"><img alt=""></dialog>
+  </div>
+  <script>
+  (function(){var d=document.getElementById('zoom');if(!d)return;var im=d.querySelector('img');
+  document.querySelectorAll('.paginas button').forEach(function(b){b.addEventListener('click',function(){var i=b.querySelector('img');im.src=i.src;im.alt=i.alt;d.showModal()})});
+  d.addEventListener('click',function(){d.close()})})();
+  </script>
 </section>
 
 <section id="servicos" class="alt">
