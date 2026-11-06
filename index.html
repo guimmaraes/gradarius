@@ -199,9 +199,8 @@ details.historia p{margin-top:1rem}
 .contato p{margin:0 auto 2rem;color:#cfcbe8}
 .contato h2{max-width:20ch;margin-inline:auto}
 footer{background:var(--ink);color:#b9b5da;font-size:.95rem;padding:3.5rem 0 1.6rem;border-top:1px solid rgba(255,255,255,.1)}
-.rodape{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2.5rem}
-.rodape .marca{font-family:var(--serif);font-size:2.2rem;font-weight:600;color:#f3f1fb;line-height:1}
-.rodape .marca span{color:var(--brass)}
+.rodape{display:grid;grid-template-columns:minmax(240px,1.3fr) 1fr 1fr 1fr;gap:2.5rem}
+.rodape .marca{display:block;width:min(100%,260px);height:auto}
 .rodape .marca-sub{margin-top:.8rem;color:#9a96c0;max-width:26ch}
 .rodape h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#f3f1fb;letter-spacing:.04em;margin-bottom:.9rem}
 .rodape h4::before{content:"◆";color:var(--brass);font-size:.6rem;margin-right:.6rem;vertical-align:.2em}
@@ -209,7 +208,17 @@ footer{background:var(--ink);color:#b9b5da;font-size:.95rem;padding:3.5rem 0 1.6
 .rodape li{margin:.55rem 0}
 .rodape a{color:#b9b5da;text-decoration:none}
 .rodape a:hover{color:#fff;text-decoration:underline}
-.rodape-fim{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.88rem;color:#9a96c0}
+.rodape-fim{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.88rem;color:#9a96c0}
+.rodape-linha{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.rodape-fim a{color:#b9b5da}
+.rodape-fim .aviso{margin-top:.7rem;font-size:.8rem;max-width:70ch}
+.topo-btn{display:inline-flex;align-items:center;justify-content:center;width:2.2rem;height:2.2rem;border:1px solid var(--brass);border-radius:50%;color:var(--brass)!important;text-decoration:none;transition:background .2s}
+.topo-btn:hover{background:rgba(184,147,74,.15)}
+#contato-rodape .btn{color:#1b1630;text-decoration:none;margin-bottom:.4rem}
+#contato-rodape h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:#f3f1fb;letter-spacing:.04em;margin-bottom:.9rem}
+#contato-rodape h4::before{content:"◆";color:var(--brass);font-size:.6rem;margin-right:.6rem;vertical-align:.2em}
+#contato-rodape ul{list-style:none;padding:0}
+#contato-rodape li{margin:.55rem 0;color:#b9b5da}
 footer p{max-width:none}
 @media(max-width:860px){.rodape{grid-template-columns:1fr 1fr}.rodape>div:first-child{grid-column:1/-1}}
 @media(max-width:480px){.rodape{grid-template-columns:1fr}}
@@ -457,38 +466,41 @@ footer p{max-width:none}
   <div class="wrap">
     <div class="rodape">
       <div>
-        <div class="marca">Gradar<span>ius</span></div>
+        <img class="marca" src="logo-gradarius.svg" alt="Gradarius Holística" width="260" height="83">
         <p class="marca-sub">Grau a grau, mais clareza.</p>
       </div>
-      <nav aria-label="Atendimento">
-        <h4>Atendimento</h4>
+      <nav aria-label="Navegação">
+        <h4>Navegação</h4>
         <ul>
-          <li><a href="mailto:contato@gradarius.com.br">contato@gradarius.com.br</a></li>
           <li><a href="#servicos">Tarot e Lenormand</a></li>
           <li><a href="#mapa-numerologico">Mapa Numerológico</a></li>
+          <li><a href="#como">Como funciona</a></li>
+          <li><a href="#sobre">Quem atende</a></li>
         </ul>
       </nav>
       <nav aria-label="Ferramentas gratuitas">
-        <h4>Ferramentas</h4>
+        <h4>Ferramentas gratuitas</h4>
         <ul>
           <li><a href="servicos/biorritmo/">Biorritmo</a></li>
           <li><a href="servicos/tattwas/">Tattwas</a></li>
           <li><a href="servicos/roda-ciclos/">Roda dos Ciclos</a></li>
         </ul>
       </nav>
-      <nav aria-label="O site">
-        <h4>Conheça</h4>
+      <div id="contato-rodape">
+        <h4>Falar comigo</h4>
+        <a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Gradarius." target="_blank" rel="noopener">WhatsApp</a>
         <ul>
-          <li><a href="#sobre">Quem atende</a></li>
-          <li><a href="#como">Como funciona</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li><a href="privacidade/">Privacidade</a></li>
+          <li><a href="mailto:contato@gradarius.com.br">contato@gradarius.com.br</a></li>
+          <li>Atendimento online, Brasil e exterior</li>
         </ul>
-      </nav>
+      </div>
     </div>
     <div class="rodape-fim">
-      <p>© <span id="ano">2026</span> Gradarius. Todos os direitos reservados.</p>
-      <p>As práticas oferecidas têm caráter de autoconhecimento e não substituem tratamento médico ou psicológico.</p>
+      <div class="rodape-linha">
+        <p>© <span id="ano">2026</span> Gradarius · <a href="privacidade/">Privacidade</a></p>
+        <a class="topo-btn" href="#topo" aria-label="Voltar ao topo">↑</a>
+      </div>
+      <p class="aviso">As práticas oferecidas têm caráter de autoconhecimento e não substituem tratamento médico ou psicológico.</p>
     </div>
   </div>
 </footer>
