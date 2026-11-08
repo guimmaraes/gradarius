@@ -95,6 +95,8 @@ nav a:hover{color:var(--text)}
 .leg{text-align:center;max-width:34ch;min-height:5.5rem}
 .leg b{display:block;font-family:var(--serif);font-size:1.7rem;font-weight:600;line-height:1.1;color:#f3f1fb;margin-bottom:.35rem}
 .leg span{color:#cfcbe8;font-size:.97rem;line-height:1.5}
+.leg i{display:block;margin-top:1rem;font-family:var(--serif);font-style:italic;font-size:.8rem;color:#9a96bf}
+.leg i a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .dica{font-family:var(--serif);font-style:italic;font-size:1.3rem;line-height:1.3;color:#f3f1fb;text-align:center;max-width:30ch;order:1}
 .leg{order:2}
 @keyframes gira{to{transform:rotate(360deg)}}
@@ -280,7 +282,7 @@ footer p{max-width:none}
           <div class="face frente" id="frente"><img id="c-img" alt="" hidden><i id="c-simb">✦</i><b id="c-nome">—</b><span id="c-msg"></span></div>
         </div>
       </button>
-      <div class="leg" id="leg" aria-live="polite"><b id="l-nome"></b><span id="l-msg"></span></div>
+      <div class="leg" id="leg" aria-live="polite"><b id="l-nome"></b><span id="l-msg"></span><i id="l-nota"></i></div>
       <p class="dica" id="dica">Feche os olhos, veja a sua situação, visualize a sua pergunta e clique na carta.</p>
     </div>
   </div>
@@ -637,7 +639,7 @@ function arq(i){return 'decks/web/'+(i<22?('0'+i).slice(-2)+'_':'')+slug(cartas[
 el.addEventListener('click',function(){
   if(el.classList.contains('virada')){
     el.classList.remove('virada');
-    document.getElementById('l-nome').textContent='';document.getElementById('l-msg').textContent='';
+    document.getElementById('l-nome').textContent='';document.getElementById('l-msg').textContent='';document.getElementById('l-nota').textContent='';
     document.getElementById('dica').textContent='Feche os olhos, veja a sua situação, visualize a sua pergunta e clique na carta.';
     return;
   }
@@ -646,7 +648,7 @@ el.addEventListener('click',function(){
   document.getElementById('c-simb').textContent=cartas[i][1];
   document.getElementById('c-msg').textContent=cartas[i][2];
   document.getElementById('l-nome').textContent=cartas[i][0];
-  document.getElementById('l-msg').textContent=cartas[i][2];
+  document.getElementById('l-msg').textContent=cartas[i][2];document.getElementById('l-nota').innerHTML='Baralho Pamela “A” (1909) <a href="https://www.dungeon.church/rider-waite-smith-tarot-pamela-a-1909/" target="_blank" rel="noopener">original</a> · estilo Gradarius';
   var im=document.getElementById('c-img'),fr=document.getElementById('frente');
   fr.classList.remove('com-img');im.hidden=true;
   im.onload=function(){im.hidden=false;fr.classList.add('com-img')};
