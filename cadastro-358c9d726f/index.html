@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Cadastro | Gradarius</title>
+<meta name="theme-color" content="#1e1b3a">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(../fontes/cormorant-garamond-latin-500-normal.ttf) format('truetype')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:600;font-display:swap;src:url(../fontes/cormorant-garamond-latin-600-normal.ttf) format('truetype')}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:400 500;font-display:swap;src:url(../fontes/figtree-latin-400-normal.ttf) format('truetype')}
+@font-face{font-family:'Figtree';font-style:normal;font-weight:600;font-display:swap;src:url(../fontes/figtree-latin-600-normal.ttf) format('truetype')}
+:root{
+  --ink:#1e1b3a; --moon:#f1eff8; --paper:#fbfaff;
+  --text:#25223f; --muted:#625f80; --brass:#b8934a; --line:#dcd8ec; --card:#ffffff; --erro:#b3261e;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Figtree',system-ui,sans-serif;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#15132b;--moon:#1c1a38;--text:#ebe9f7;--muted:#a9a6c6;--line:#34315a;--card:#211f42;--erro:#ff8a80}
+}
+:root[data-theme="dark"]{--paper:#15132b;--moon:#1c1a38;--text:#ebe9f7;--muted:#a9a6c6;--line:#34315a;--card:#211f42;--erro:#ff8a80}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--sans);background:var(--paper);color:var(--text);line-height:1.6;font-size:1.0625rem}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:6px}
+.wrap{max-width:760px;margin:0 auto;padding:0 1.5rem}
+h1,h2{font-family:var(--serif);font-weight:600;line-height:1.1}
+header{background:var(--paper);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;height:68px;max-width:1080px}
+.logo{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--text);letter-spacing:.02em}
+.logo span{color:var(--brass)}
+main{padding:2.6rem 0 4rem}
+h1{font-size:clamp(2.2rem,5vw,3rem);margin-bottom:.4rem}
+.sub{color:var(--muted);margin-bottom:1.8rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.8rem}
+fieldset{border:0;padding:0;min-width:0}
+.tipos{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin-bottom:1.6rem}
+.tipos label{display:flex;align-items:center;gap:.5rem;cursor:pointer;font-weight:500}
+input[type=radio],input[type=checkbox]{accent-color:var(--brass);width:1.1rem;height:1.1rem}
+.grade{display:grid;grid-template-columns:repeat(12,1fr);gap:1.2rem 1rem;margin-bottom:1.2rem}
+.s3{grid-column:span 3}.s4{grid-column:span 4}.s6{grid-column:span 6}
+@media(max-width:640px){.s3{grid-column:span 6}.s4,.s6{grid-column:span 12}}
+.campo label.rot{display:block;font-weight:600;margin-bottom:.35rem;font-size:.97rem}
+.campo .obr{color:var(--brass)}
+input[type=text],input[type=email],input[type=tel],select{width:100%;font:400 1rem var(--sans);color:var(--text);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;min-height:2.9rem}
+select:disabled,input:disabled{opacity:.55;cursor:not-allowed}
+input:focus,select:focus{border-color:var(--brass)}
+.campo.invalido input,.campo.invalido select{border-color:var(--erro)}
+.msg{display:none;color:var(--erro);font-size:.88rem;margin-top:.3rem}
+.campo.invalido .msg{display:block}
+.sem{display:flex;align-items:center;gap:.5rem;margin-top:.45rem;font-size:.92rem;color:var(--muted);cursor:pointer}
+.ajuda{font-size:.9rem;color:var(--muted);margin-top:.3rem}
+.ajuda a{color:var(--brass)}
+.lgpd{display:flex;gap:.7rem;align-items:flex-start;margin-top:1.8rem;font-size:.95rem;color:var(--muted)}
+.lgpd input{margin-top:.2rem;flex:none}
+.lgpd a{color:var(--brass)}
+.btn{display:inline-block;background:var(--brass);color:#1b1630;font:600 1rem var(--sans);padding:.85rem 2rem;border-radius:999px;border:0;cursor:pointer;transition:transform .2s,background .2s;margin-top:1.4rem}
+.btn:hover{transform:translateY(-2px);background:#c9a45a}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.aviso{margin-top:1rem;font-size:.95rem}
+.aviso.erro{color:var(--erro)}
+.sub.nf{margin-top:-1.2rem;font-size:.97rem}
+.ok{text-align:center;padding:2rem 0}
+.ok h2{font-size:2rem;margin-bottom:.6rem;color:var(--brass)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+[hidden]{display:none!important}
+footer{background:var(--ink);color:#9a96c0;font-size:.9rem;padding:1.6rem 0;text-align:center}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar"><span class="logo">Gradar<span>ius</span></span></div></header>
+
+<main><div class="wrap">
+  <h1>Cadastro</h1>
+  <p class="sub">Os dados abaixo são necessários para gerar a Nota Fiscal. Campos com * são obrigatórios.</p>
+  <!-- TEXTO PROPOSTO: aguardando dados/CNPJ da Nanolitika (Marco) -->
+  <p class="sub nf">A Nota Fiscal será emitida pela <b>Nanolitika Ltda.</b> (CNPJ 62.848.599/0001-75), empresa regulamentada que dá suporte à Gradarius.</p>
+
+  <div class="card">
+    <form id="f" novalidate autocomplete="on">
+      <fieldset class="tipos" role="radiogroup" aria-label="Tipo de cliente">
+        <label><input type="radio" name="tipo" value="Pessoa Jurídica"> Pessoa Jurídica</label>
+        <label><input type="radio" name="tipo" value="Pessoa Física" checked> Pessoa Física</label>
+        <label><input type="radio" name="tipo" value="Cliente do exterior"> Cliente do exterior</label>
+      </fieldset>
+
+      <div class="grade">
+    <div class="campo s4" data-t="pf" data-req><label class="rot" for="cpf">CPF <span class="obr">*</span></label>
+      <input type="text" id="cpf" name="cpf" inputmode="numeric" maxlength="14" autocomplete="off"><div class="msg">CPF inválido.</div></div>
+    <div class="campo s4" data-t="pj" data-req hidden><label class="rot" for="cnpj">CNPJ <span class="obr">*</span></label>
+      <input type="text" id="cnpj" name="cnpj" inputmode="numeric" maxlength="18" autocomplete="off"><div class="msg">CNPJ inválido.</div></div>
+  </div>
+  <div class="grade">
+    <div class="campo s6" data-t="pf ex" data-req><label class="rot" for="nome">Nome completo <span class="obr">*</span></label>
+      <input type="text" id="nome" name="nome" autocomplete="name"><div class="msg">Informe o nome.</div></div>
+    <div class="campo s6" data-t="pj" data-req hidden><label class="rot" for="razao">Razão Social <span class="obr">*</span></label>
+      <input type="text" id="razao" name="razao_social" autocomplete="organization"><div class="msg">Informe a razão social.</div></div>
+    <div class="campo s6" data-t="pf pj ex"><label class="rot" for="email">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email"><div class="msg">Email inválido.</div></div>
+  </div>
+  <div class="grade">
+    <div class="campo s4" data-t="pf pj"><label class="rot" for="tel">Telefone</label>
+      <input type="tel" id="tel" name="telefone" inputmode="tel" maxlength="15" autocomplete="tel"></div>
+    <div class="campo s4" data-t="pj" hidden><label class="rot" for="im">Inscrição municipal / C.C.M</label>
+      <input type="text" id="im" name="inscricao_municipal" autocomplete="off"><div class="ajuda">Se não tiver, deixe em branco.</div></div>
+  </div>
+  <div class="grade">
+    <div class="campo s4" data-t="pf pj" data-req><label class="rot" for="cep">CEP <span class="obr">*</span></label>
+      <input type="text" id="cep" name="cep" inputmode="numeric" maxlength="9" autocomplete="postal-code"><div class="msg">CEP inválido.</div>
+      <div class="ajuda" id="cepAjuda" hidden></div></div>
+  </div>
+  <div class="grade">
+    <div class="campo s6" data-t="pf pj ex" data-req><label class="rot" for="end">Endereço <span class="obr">*</span></label>
+      <input type="text" id="end" name="endereco" autocomplete="address-line1"><div class="msg">Informe o endereço.</div></div>
+    <div class="campo s3" data-t="pf pj ex" data-req><label class="rot" for="num">Número <span class="obr">*</span></label>
+      <input type="text" id="num" name="numero" autocomplete="off"><div class="msg">Informe o número.</div>
+      <label class="sem" data-t="pf pj"><input type="checkbox" id="sn"> Sem número</label></div>
+    <div class="campo s3" data-t="pf pj ex"><label class="rot" for="comp">Complemento</label>
+      <input type="text" id="comp" name="complemento" autocomplete="address-line2"></div>
+  </div>
+  <div class="grade">
+    <div class="campo s4" data-t="pf pj" data-req><label class="rot" for="uf">Estado <span class="obr">*</span></label>
+      <select id="uf" name="estado"><option value="">Escolha um Estado</option></select><div class="msg">Escolha o Estado.</div></div>
+    <div class="campo s4" data-t="pf pj" data-req><label class="rot" for="mun">Município <span class="obr">*</span></label>
+      <select id="mun" name="municipio" disabled><option value="">Escolha um município</option></select><div class="msg">Escolha o município.</div></div>
+    <div class="campo s4" data-t="pf pj" data-req><label class="rot" for="bairro">Bairro <span class="obr">*</span></label>
+      <input type="text" id="bairro" name="bairro" autocomplete="off"><div class="msg">Informe o bairro.</div></div>
+  </div>
+  <div class="grade">
+    <div class="campo s6" data-t="ex" data-req hidden><label class="rot" for="cidade">Cidade <span class="obr">*</span></label>
+      <input type="text" id="cidade" name="cidade" autocomplete="address-level2"><div class="msg">Informe a cidade.</div></div>
+    <div class="campo s6" data-t="ex" data-req hidden><label class="rot" for="pais">País <span class="obr">*</span></label>
+      <select id="pais" name="pais"><option value="">Escolha o país</option></select><div class="msg">Escolha o país.</div></div>
+  </div>
+
+      <div class="hp" aria-hidden="true"><label>Não preencha <input type="text" name="site" tabindex="-1" autocomplete="off"></label></div>
+
+      <!-- TEXTO DE CONSENTIMENTO: PROPOSTA, o texto final é do Marco -->
+      <label class="lgpd"><input type="checkbox" id="lgpd">
+        <span>Autorizo o uso destes dados apenas para gerar a nota fiscal, conforme a <a href="../privacidade/" target="_blank" rel="noopener">política de privacidade</a>. <span class="obr" style="color:var(--brass)">*</span></span></label>
+      <div class="campo" id="campoLgpd"><div class="msg">Marque a autorização para enviar.</div></div>
+
+      <button class="btn" type="submit" id="enviar">Cadastrar</button>
+      <p class="aviso" id="aviso" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="ok" id="ok" hidden>
+      <h2>Cadastro enviado</h2>
+      <p>Recebi os seus dados. Obrigado!</p>
+    </div>
+  </div>
+</div></main>
+
+<footer><div class="wrap">© <span id="ano">2026</span> Gradarius. Todos os direitos reservados.</div></footer>
+
+<script>
+/* ===== CONFIGURAÇÃO =====
+   URL_SCRIPT: endereço do Web App do Apps Script (ver formulario_cadastro/PASSO_A_PASSO.md).
+   CHAVE: mesma palavra definida no apps_script.gs (barra envios aleatórios; não é segredo forte). */
+var URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbzHFN8wjvgSNKBkSLGHPrTxcN_1_9YtI57fH-ZlnVUm4Ij41XxCIUl6lK90M1hLeEkp/exec';
+var CHAVE = 'gradarius-777';
+
+(function(){
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var f = $('#f'), tipoAtual = 'pf';
+  var MAPA = {'Pessoa Física':'pf','Pessoa Jurídica':'pj','Cliente do exterior':'ex'};
+
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  try{var t=localStorage.getItem('tema');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}
+
+  /* ---------- alternância de tipo ---------- */
+  function aplicarTipo(){
+    tipoAtual = MAPA[$('input[name=tipo]:checked').value];
+    $$('[data-t]').forEach(function(el){
+      var mostra = el.getAttribute('data-t').split(' ').indexOf(tipoAtual) > -1;
+      el.hidden = !mostra;
+      $$('input,select',el).forEach(function(i){ if(i.id!=='uf') i.disabled = !mostra; });
+    });
+    $$('.grade').forEach(function(g){g.hidden = !$$('.campo',g).some(function(c){return !c.hidden})});
+    $('label[for=nome]').firstChild.nodeValue = (tipoAtual==='ex') ? 'Razão Social ou Nome ' : 'Nome completo ';
+    $('#uf').disabled = (tipoAtual==='ex');
+    $('#mun').disabled = (tipoAtual==='ex') || !$('#uf').value;
+    $('#pais').disabled = (tipoAtual!=='ex');
+    $$('.campo.invalido').forEach(function(c){c.classList.remove('invalido')});
+  }
+  $$('input[name=tipo]').forEach(function(r){r.addEventListener('change',aplicarTipo)});
+
+  /* ---------- máscaras ---------- */
+  function so(v){return v.replace(/\D/g,'')}
+  $('#cpf').addEventListener('input',function(){var v=so(this.value).slice(0,11);
+    this.value=v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2')});
+  $('#cnpj').addEventListener('input',function(){var v=so(this.value).slice(0,14);
+    this.value=v.replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3').replace(/\.(\d{3})(\d)/,'.$1/$2').replace(/(\d{4})(\d)/,'$1-$2')});
+  $('#cep').addEventListener('input',function(){var v=so(this.value).slice(0,8);this.value=v.replace(/^(\d{5})(\d)/,'$1-$2')});
+  $('#tel').addEventListener('input',function(){var v=so(this.value).slice(0,11);
+    this.value=v.length>10?v.replace(/^(\d{2})(\d{5})(\d{0,4}).*/,'($1) $2-$3'):v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/,'($1) $2-$3').replace(/-$/,'').replace(/^(\d{2})$/,'($1')});
+
+  /* ---------- validações ---------- */
+  function cpfOk(c){c=so(c);if(c.length!==11||/^(\d)\1+$/.test(c))return false;
+    for(var t=9;t<11;t++){var s=0;for(var i=0;i<t;i++)s+=c[i]*(t+1-i);var d=(s*10)%11%10;if(d!=c[t])return false}return true}
+  function cnpjOk(c){c=so(c);if(c.length!==14||/^(\d)\1+$/.test(c))return false;
+    function dv(n){var p=n-7,s=0;for(var i=0;i<n;i++){s+=c[i]*p--;if(p<2)p=9}var r=s%11;return r<2?0:11-r}
+    return dv(12)==c[12]&&dv(13)==c[13]}
+
+  /* ---------- Estados e municípios (IBGE) ---------- */
+  var IBGE='https://servicodados.ibge.gov.br/api/v1/localidades/estados';
+  var ufSel=$('#uf'), munSel=$('#mun'), pendenteMun=null;
+  fetch(IBGE+'?orderBy=nome').then(function(r){return r.json()}).then(function(L){
+    L.forEach(function(e){var o=document.createElement('option');o.value=e.sigla;o.textContent=e.nome+' ('+e.sigla+')';o.dataset.nome=e.nome;ufSel.appendChild(o)});
+  }).catch(function(){});
+  function carregarMun(uf,sel){
+    munSel.innerHTML='<option value="">Carregando…</option>';munSel.disabled=true;
+    if(!uf){munSel.innerHTML='<option value="">Escolha um município</option>';return Promise.resolve()}
+    return fetch(IBGE+'/'+uf+'/municipios?orderBy=nome').then(function(r){return r.json()}).then(function(L){
+      munSel.innerHTML='<option value="">Escolha um município</option>';
+      L.forEach(function(m){var o=document.createElement('option');o.value=m.nome;o.textContent=m.nome;munSel.appendChild(o)});
+      munSel.disabled=(tipoAtual==='ex');
+      if(sel){var alvo=norm(sel);$$('option',munSel).forEach(function(o){if(norm(o.value)===alvo)munSel.value=o.value})}
+    }).catch(function(){munSel.innerHTML='<option value="">Não foi possível carregar</option>'});
+  }
+  function norm(s){return (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim()}
+  ufSel.addEventListener('change',function(){carregarMun(ufSel.value)});
+
+  /* ---------- CEP (ViaCEP) ---------- */
+  var cepAj=$('#cepAjuda');
+  $('#cep').addEventListener('blur',function(){
+    var c=so(this.value);cepAj.hidden=true;if(c.length!==8)return;
+    cepAj.textContent='Buscando endereço…';cepAj.hidden=false;
+    fetch('https://viacep.com.br/ws/'+c+'/json/').then(function(r){return r.json()}).then(function(d){
+      if(d.erro){cepAj.textContent='CEP não encontrado. Preencha o endereço manualmente.';return}
+      cepAj.hidden=true;
+      if(d.logradouro)$('#end').value=d.logradouro;
+      if(d.bairro)$('#bairro').value=d.bairro;
+      if(d.complemento&&!$('#comp').value)$('#comp').value=d.complemento;
+      if(d.uf){ufSel.value=d.uf;carregarMun(d.uf,d.localidade)}
+    }).catch(function(){cepAj.textContent='Não foi possível buscar o CEP. Preencha manualmente.'});
+  });
+
+  /* ---------- Sem número ---------- */
+  $('#sn').addEventListener('change',function(){var n=$('#num');n.disabled=this.checked;if(this.checked){n.value='S/N';n.closest('.campo').classList.remove('invalido')}else{n.value=''}});
+
+  /* ---------- Países ---------- */
+  (function(){
+    var sel=$('#pais'),lista=[],nome;
+    try{nome=new Intl.DisplayNames(['pt-BR'],{type:'region'})}catch(e){nome=null}
+    if(nome){
+      for(var a=65;a<=90;a++)for(var b=65;b<=90;b++){var c=String.fromCharCode(a,b);
+        try{var n=nome.of(c);if(n&&n!==c&&c!=='BR'&&c!=='ZZ'&&c!=='QO'&&c!=='EU'&&c!=='UN'&&c!=='XA'&&c!=='XB')lista.push(n)}catch(e){}}
+      lista.sort(function(x,y){return x.localeCompare(y,'pt-BR')});
+    }
+    if(lista.length){lista.forEach(function(n){var o=document.createElement('option');o.value=n;o.textContent=n;sel.appendChild(o)})}
+    else{sel.outerHTML='<input type="text" id="pais" name="pais" placeholder="País">'}
+  })();
+
+  /* ---------- envio ---------- */
+  function marcar(campo,ruim){if(campo)campo.classList.toggle('invalido',!!ruim);return !ruim}
+  function validar(){
+    var ok=true,primeiro=null;
+    $$('.campo').forEach(function(c){
+      if(c.hidden||c.id==='campoLgpd')return;
+      var i=$('input,select',c);if(!i||i.disabled)return;
+      var v=i.value.trim(),ruim=false;
+      if(c.hasAttribute('data-req')&&!v)ruim=true;
+      if(!ruim&&i.id==='cpf')ruim=!cpfOk(v);
+      if(!ruim&&i.id==='cnpj')ruim=!cnpjOk(v);
+      if(!ruim&&i.id==='cep')ruim=so(v).length!==8;
+      if(!ruim&&i.id==='email'&&v)ruim=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      marcar(c,ruim);if(ruim){ok=false;if(!primeiro)primeiro=i}
+    });
+    if(!marcar($('#campoLgpd'),!$('#lgpd').checked)){ok=false;if(!primeiro)primeiro=$('#lgpd')}
+    if(primeiro)primeiro.focus();
+    return ok;
+  }
+  $$('input,select').forEach(function(i){i.addEventListener('input',function(){var c=i.closest('.campo');if(c)c.classList.remove('invalido')})});
+
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var av=$('#aviso');av.className='aviso';av.textContent='';
+    if(f.site&&f.site.value)return;                     /* isca anti-robô */
+    if(!validar())return;
+    var d={chave:CHAVE,enviado_em:new Date().toISOString()};
+    $$('input,select',f).forEach(function(i){
+      if(!i.name||i.name==='site'||i.type==='radio'&&!i.checked)return;
+      var c=i.closest('[data-t]');if(c&&c.hidden)return;
+      d[i.name]=(i.name==='estado'?i.value:i.value).trim();
+    });
+    d.tipo=$('input[name=tipo]:checked').value;
+    d.sem_numero=$('#sn').checked?'sim':'';
+    d.lgpd='aceito';
+    if(/^COLE_AQUI/.test(URL_SCRIPT)){av.className='aviso erro';av.textContent='Formulário ainda não configurado (falta a URL do Apps Script).';return}
+    var b=$('#enviar');b.disabled=true;b.textContent='Enviando…';
+    fetch(URL_SCRIPT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})
+      .then(function(){f.hidden=true;$('#ok').hidden=false;window.scrollTo({top:0,behavior:'smooth'})})
+      .catch(function(){b.disabled=false;b.textContent='Cadastrar';av.className='aviso erro';av.textContent='Não foi possível enviar. Verifique a conexão e tente de novo.'});
+  });
+
+  aplicarTipo();
+})();
+</script>
+</body>
+</html>
