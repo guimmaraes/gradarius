@@ -130,14 +130,14 @@ footer .ornamento{color:var(--brass);font-size:1.2rem}
     <form class="form" id="form" novalidate hidden>
       <div class="campo">
         <label for="f-nasc">Dia e mês de nascimento</label>
-        <input id="f-nasc" type="text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="dd/mm" aria-describedby="e-nasc">
+        <input id="f-nasc" type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="dd/mm" aria-describedby="e-nasc">
         <p class="ajuda">Só o dia e o mês: o ano não é necessário.</p>
       </div>
       <details>
         <summary>Opções (negócio e outro momento)</summary>
         <div class="campo">
           <label for="f-fund">Dia e mês de fundação do negócio (opcional)</label>
-          <input id="f-fund" type="text" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="dd/mm" aria-describedby="e-nasc">
+          <input id="f-fund" type="text" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="dd/mm" aria-describedby="e-nasc">
           <p class="ajuda">O dia em que passou a atender o público ou a operar. Inclui o Ciclo de Negócios.</p>
         </div>
         <div class="campo">
@@ -439,6 +439,13 @@ if (bruto.charAt(0) === '{') {   // dados embutidos pelo gerar_web.py (o marcado
   document.head.appendChild(lib);
   const carregador = nome => fetch('dados/'+nome).then(r=>{ if(!r.ok) throw new Error(nome); return r.json(); });
   const pad2 = n => String(n).padStart(2,'0');
+  /* máscara dd/mm: o teclado numérico do celular não tem "/"; a barra entra sozinha depois do 2º dígito */
+  function mascaraDM(ev){
+    const i = ev.target, apagando = (ev.inputType || '').indexOf('delete') === 0;
+    const d = i.value.replace(/\D/g,'').slice(0,4);
+    i.value = d.length > 2 ? d.slice(0,2) + '/' + d.slice(2) : (d.length === 2 && !apagando ? d + '/' : d);
+  }
+  ['f-nasc','f-fund'].forEach(id => $(id).addEventListener('input', mascaraDM));
   /* dd/mm (aceita também d/m, dd-mm, dd.mm, ddmm e dd/mm/aaaa; o ano é ignorado) */
   function lerDM(txt){
     const m = /^\s*(\d{1,2})[\/\-. ](\d{1,2})(?:[\/\-. ]\d{2,4})?\s*$/.exec(txt) || /^\s*(\d{2})(\d{2})\s*$/.exec(txt);
