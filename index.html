@@ -109,7 +109,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;background:url(fundo-c
 main section{background:var(--sec,transparent)}
 main section.alt{background:var(--sec-alt,var(--moon))}
 .intro{margin-bottom:3rem}
-.intro p{color:var(--muted)}
+.intro p{color:var(--muted);max-width:80ch}
 
 /* servicos: linhas, nao cards identicos */
 .serv{border-top:1px solid var(--line)}
@@ -166,7 +166,7 @@ main section.alt{background:var(--sec-alt,var(--moon))}
 @media(max-width:860px){.mapa{grid-template-columns:1fr}}
 .amostra{margin-top:3.5rem;text-align:center}
 .amostra h3{font-family:var(--serif);font-size:1.7rem;margin-bottom:.3rem}
-.amostra .am-leg{color:var(--muted);margin-bottom:1.6rem}
+.amostra .am-leg{color:var(--muted);margin:0 auto 1.6rem}
 .paginas{display:flex;gap:1.2rem;justify-content:center;overflow-x:auto;scroll-snap-type:x mandatory;padding:.4rem .2rem 1rem}
 .paginas button{flex:0 0 min(31%,300px);scroll-snap-align:center;background:none;border:0;padding:0;cursor:zoom-in}
 .paginas img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s}
@@ -398,7 +398,7 @@ footer p{max-width:none}
       <button type="button" aria-label="Ampliar o resumo do mapa"><img src="amostra/mapa-2.webp" alt="Resumo do mapa: os cinco pontos e o índice de seções" width="1000" height="1414" loading="lazy"></button>
       <button type="button" aria-label="Ampliar o Coração do Mapa"><img src="amostra/mapa-3.webp" alt="O Coração do Mapa: triângulo com os cinco números" width="1000" height="1414" loading="lazy"></button>
     </div>
-    <p class="am-leg" style="margin:1.4rem 0 0">No mapa completo você encontra, entre outras seções:</p>
+    <p class="am-leg" style="margin:1.4rem auto 0">No mapa completo você encontra, entre outras seções:</p>
     <ul class="secoes">
       <li>O Coração do Mapa</li><li>Ciclos da sua vida</li><li>Como você reage à vida</li><li>Como você sente</li>
       <li>Pontos de atenção</li><li>Como você se comunica</li><li>Primeiros 28 anos e a família</li><li>Realizações</li>
