@@ -162,6 +162,8 @@ main section.alt{background:var(--sec-alt,var(--moon))}
 .opcao b{font-family:var(--serif);font-size:1.4rem}
 .opcao p{color:var(--muted);margin-top:.2rem}
 .opcao .preco{color:var(--text);font-weight:600}
+.opcao .preco-ext{color:var(--muted);font-size:.85rem;margin-top:.1rem}
+.nota-ext{color:var(--muted);font-size:.9rem;text-align:center;margin-top:1rem}
 .selo{position:absolute;top:-.7rem;right:1.2rem;background:var(--brass);color:#1b1630;font-size:.8rem;font-weight:600;padding:.1rem .8rem;border-radius:999px}
 @media(max-width:860px){.mapa{grid-template-columns:1fr}}
 .amostra{margin-top:3.5rem;text-align:center}
@@ -378,15 +380,18 @@ footer p{max-width:none}
       <div class="opcoes">
         <div class="opcao">
           <b>Só o mapa</b>
-          <!-- preço oculto (teste) -->
+          <p class="preco">R$ 190 no Pix · R$ 200 no cartão</p>
+          <p class="preco-ext">Exterior: € 32 · US$ 45</p>
         </div>
         <div class="opcao rec">
           <span class="selo">Recomendado</span>
           <b>Mapa + 1 hora de conversa</b>
           <p>Online (Google Meet), para tirar dúvidas comigo.</p>
-          <!-- preço oculto (teste) -->
+          <p class="preco">R$ 300 no Pix · R$ 315 no cartão</p>
+          <p class="preco-ext">Exterior: € 50 · US$ 70</p>
         </div>
       </div>
+      <p class="nota-ext">Atendo Brasil e exterior. Valores em euro e dólar para pagamento fora do Brasil.</p>
       <a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20meu%20Mapa%20Numerol%C3%B3gico." target="_blank" rel="noopener">Quero meu mapa</a>
     </div>
   </div>
@@ -424,16 +429,19 @@ footer p{max-width:none}
       <div class="opcao">
         <b>Pelo WhatsApp</b>
         <p>Você me envia suas perguntas. Eu respondo com mensagem, foto das cartas e um áudio explicando.</p>
-        <!-- preço oculto (teste) -->
+        <p class="preco">R$ 190 no Pix · R$ 200 no cartão</p>
+        <p class="preco-ext">Exterior: € 32 · US$ 45</p>
         <a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20um%20atendimento%20de%20Tarot%20e%20Lenormand%20pelo%20WhatsApp." target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
       </div>
       <div class="opcao">
         <b>Consulta online de 1 hora</b>
         <p>Conversa ao vivo por videochamada, sem pressa.</p>
-        <!-- preço oculto (teste) -->
+        <p class="preco">R$ 300 no Pix · R$ 315 no cartão</p>
+        <p class="preco-ext">Exterior: € 50 · US$ 70</p>
         <a class="btn" href="https://wa.me/5541987362764?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta%20online%20de%201%20hora." target="_blank" rel="noopener">Agendar a consulta</a>
       </div>
     </div>
+    <p class="nota-ext">Atendo Brasil e exterior. Valores em euro e dólar para pagamento fora do Brasil.</p>
     <h3 class="outros">Outros atendimentos</h3>
     <div class="serv">
       <article class="linha breve">
